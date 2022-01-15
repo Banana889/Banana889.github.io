@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-01-15T01:43:08.157Z</updated>
+  <updated>2022-01-14T13:43:32.982Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -18,12 +18,33 @@
   
   <entry>
     <title></title>
+    <link href="http://example.com/2022/01/15/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E7%BE%A4/"/>
+    <id>http://example.com/2022/01/15/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E7%BE%A4/</id>
+    <published>2022-01-15T01:47:51.965Z</published>
+    <updated>2022-01-14T13:43:32.982Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第二章-群"><a href="#第二章-群" class="headerlink" title="第二章 群"></a>第二章 群</h1><hr><h2 id="第一节–合成法则"><a href="#第一节–合成法则" class="headerlink" title="第一节–合成法则"></a>第一节–合成法则</h2><p><strong>合成法则</strong>：</p><blockquote><p>集合S中的合成法则是将S中的元素a,b合成为另一个元素</p><blockquote><p>想到一件有意思的事情，关于质因数分解，一般来说，两个元素的合成是一个信息减少的过程，但是两个质数通过乘法合成一个数字竟然没有信息的损失（不知道这么说对不对），总归可以用枚举来复原</p><p>但是对于加法来说就没有这种特例</p></blockquote></blockquote><p><strong>交换律和结合律</strong>：</p><p>其实对于一个集合，我们可以任意定义合成运算，无论我们定义的运算有没有结合律或者交换律</p><p>后面将看到，集合S及其上面满足结合律的运算构成群，如果这个运算还满足交换律，那这个群就是一种特殊的群(Able群)</p><hr><p>有了合成法则，我们就可以定义S上面关于某个运算的恒等元(幺元)：<br>$$<br>e为恒等元 if \ \forall a\in S,ae=ea=a<br>$$<br>性质：</p><ul><li><p>幺元唯一</p><blockquote><p>$$<br>e_1a =ae_1= a(\forall a)\<br>e_2a = ae_2 =a(\forall a)\<br>e_1 e_2 = e_2\<br>e_1 e_2 = e_1\<br>\therefore e_1=e_2<br>$$</p></blockquote></li><li><p>如果a有左逆l右逆r，则<code>la=e , ar=e ，l=r=a^-1</code> </p></li></ul><blockquote><p>$$<br>证明:l = le = lar = (la)r = er = r<br>$$</p></blockquote><h2 id="第二节–群和子群"><a href="#第二节–群和子群" class="headerlink" title="第二节–群和子群"></a>第二节–群和子群</h2><h4 id="群"><a href="#群" class="headerlink" title="群"></a>群</h4><p>半群：</p><blockquote><ol><li>结合律</li><li>封闭性</li></ol></blockquote><p>幺半群：</p><blockquote><ol><li>结合律</li><li>封闭性</li><li>幺元</li></ol></blockquote><p>群：</p><blockquote><ol><li>结合律</li><li>封闭性</li><li>幺元</li><li>逆元</li></ol></blockquote><p>Able群(交换群）：</p><blockquote><ol><li>结合律</li><li>封闭性</li><li>幺元</li><li>逆元</li><li>交换律</li></ol></blockquote><p><strong>一些特殊群的记号</strong>：</p><ol><li></li></ol><p>$$<br>GL_n = {n \times n 可逆矩阵A}<br>$$</p><ol start="2"><li></li></ol><p>$$<br>\begin {flalign}<br>&amp;S_n = {指标1,2，3,…,n的置换群}\<br>&amp;也叫对称群<br>\end{flalign}<br>$$</p><p> <strong>S3的结构</strong>：</p><p>使用一个置换和一个对换的组合即可表示出S3的所有元素：<br>$$<br>x = (1 \ 2 \ 3);y = (1\ 2)\<br>S_3 = { 1,x,x^2,y,xy,x^2y}<br>$$</p><p>**定义:**群的阶是指群的元素个数（可以有无限个）</p><p><strong>一个小问题，邓少强老师的书里面1.2关于群的定义有一个弱形式，即把幺元存在逆元存在换成左幺元存在和左逆元存在，如何证明等价性呢？</strong></p><h4 id="子群"><a href="#子群" class="headerlink" title="子群"></a>子群</h4><p>条件：</p><blockquote><ol><li>封闭性</li><li>（结合律可以继承自父群）</li><li>幺元</li><li>逆元</li></ol></blockquote><p>定义：<br>$$<br>\begin {align}<br>H为群G上的非空子集，如果H在G的运算下构成群，则称H为G的子群，记为H \le G\<br>\end{align}<br>$$<br><strong>等价条件</strong>：</p><h2 id="第三节–整数加群的子群"><a href="#第三节–整数加群的子群" class="headerlink" title="第三节–整数加群的子群"></a>第三节–整数加群的子群</h2><p>整数加群的子群必然可以写成 <code>Za</code>，其中<code>a</code>为<code>S</code>中最小的正整数</p><p>证明：反证，构造</p><h2 id="第四节–循环群"><a href="#第四节–循环群" class="headerlink" title="第四节–循环群"></a>第四节–循环群</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;第二章-群&quot;&gt;&lt;a href=&quot;#第二章-群&quot; class=&quot;headerlink&quot; title=&quot;第二章 群&quot;&gt;&lt;/a&gt;第二章 群&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;第一节–合成法则&quot;&gt;&lt;a href=&quot;#第一节–合成法则&quot; class=&quot;headerlink&quot;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
     <link href="http://example.com/2022/01/06/test/"/>
     <id>http://example.com/2022/01/06/test/</id>
     <published>2022-01-06T06:25:06.864Z</published>
-    <updated>2022-01-15T01:43:08.157Z</updated>
+    <updated>2022-01-15T01:47:24.981Z</updated>
     
-    <content type="html"><![CDATA[<hr><h2 id="TEST-测试博客的功能"><a href="#TEST-测试博客的功能" class="headerlink" title="TEST 测试博客的功能"></a>TEST 测试博客的功能</h2><h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><h4 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h4><p>12354</p><hr><table><thead><tr><th>12</th><th>123</th><th>1234</th></tr></thead><tbody><tr><td>a</td><td>j</td><td>j</td></tr><tr><td></td><td></td><td></td></tr></tbody></table><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello world&quot;</span>)</span><br></pre></td></tr></table></figure><p><code>cnx</code></p>]]></content>
+    <content type="html"><![CDATA[<hr><h2 id="TEST-测试博客的功能"><a href="#TEST-测试博客的功能" class="headerlink" title="TEST 测试博客的功能"></a>TEST 测试博客的功能</h2><h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><h4 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h4><p>12354</p><hr><table><thead><tr><th>12</th><th>123</th><th>1234</th></tr></thead><tbody><tr><td>a</td><td>j</td><td>j</td></tr></tbody></table><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello world&quot;</span>)</span><br></pre></td></tr></table></figure><p><code>cnx</code></p>]]></content>
     
     
       
