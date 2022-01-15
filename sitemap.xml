@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2022/01/15/yest22/test2/</loc>
+    <loc>http://banana889.github.io/2022/01/15/z/</loc>
     
     <lastmod>2022-01-15</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/01/06/test11/test/</loc>
+    <loc>http://banana889.github.io/2022/01/15/yest22/test2/</loc>
     
     <lastmod>2022-01-15</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/01/15/group/group/</loc>
+    <loc>http://banana889.github.io/2022/01/06/test11/test/</loc>
     
     <lastmod>2022-01-15</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/about/index.html</loc>
+    <loc>http://banana889.github.io/2022/01/15/group/group/</loc>
     
     <lastmod>2022-01-15</lastmod>
     
@@ -39,12 +39,26 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
+    <loc>http://banana889.github.io/</loc>
     <lastmod>2022-01-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>http://banana889.github.io/tags/Tag1/</loc>
+    <lastmod>2022-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://banana889.github.io/tags/Tag2/</loc>
+    <lastmod>2022-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 
   
