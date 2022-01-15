@@ -18,8 +18,8 @@
   
   <entry>
     <title></title>
-    <link href="http://example.com/2022/01/15/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E7%BE%A4/"/>
-    <id>http://example.com/2022/01/15/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E7%BE%A4/</id>
+    <link href="http://example.com/2022/01/15/group/"/>
+    <id>http://example.com/2022/01/15/group/</id>
     <published>2022-01-15T01:47:51.965Z</published>
     <updated>2022-01-15T01:52:05.186Z</updated>
     
@@ -42,9 +42,9 @@
     <link href="http://example.com/2022/01/06/test/"/>
     <id>http://example.com/2022/01/06/test/</id>
     <published>2022-01-06T06:25:06.864Z</published>
-    <updated>2022-01-15T01:47:24.981Z</updated>
+    <updated>2022-01-15T01:59:00.746Z</updated>
     
-    <content type="html"><![CDATA[<hr><h2 id="TEST-测试博客的功能"><a href="#TEST-测试博客的功能" class="headerlink" title="TEST 测试博客的功能"></a>TEST 测试博客的功能</h2><h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><h4 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h4><p>12354</p><hr><table><thead><tr><th>12</th><th>123</th><th>1234</th></tr></thead><tbody><tr><td>a</td><td>j</td><td>j</td></tr></tbody></table><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello world&quot;</span>)</span><br></pre></td></tr></table></figure><p><code>cnx</code></p>]]></content>
+    <content type="html"><![CDATA[<hr><h2 id="TEST-测试博客的功能"><a href="#TEST-测试博客的功能" class="headerlink" title="TEST 测试博客的功能"></a>TEST 测试博客的功能</h2><h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><h4 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h4><p>12354</p><hr><table><thead><tr><th>12</th><th>123</th><th>1234</th></tr></thead><tbody><tr><td>a</td><td>j</td><td>j</td></tr></tbody></table><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello world&quot;</span>)</span><br></pre></td></tr></table></figure><p><code>cnx</code></p><p>$$<br>a = b^2\<br>(1-x)^{-1} = \sum _{n=0} ^\inf x^n<br>$$<br>aaaaaaaaaaba</p>]]></content>
     
     
       
