@@ -6,7 +6,7 @@
   <link href="http://banana889.github.io/atom.xml" rel="self"/>
   
   <link href="http://banana889.github.io/"/>
-  <updated>2022-01-15T04:39:00.307Z</updated>
+  <updated>2022-01-16T03:50:47.089Z</updated>
   <id>http://banana889.github.io/</id>
   
   <author>
@@ -21,122 +21,21 @@
     <link href="http://banana889.github.io/2022/01/15/z/"/>
     <id>http://banana889.github.io/2022/01/15/z/</id>
     <published>2022-01-15T02:23:48.643Z</published>
-    <updated>2022-01-15T04:39:00.307Z</updated>
+    <updated>2022-01-16T03:50:47.089Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="标题1">标题1</h1><h2 id="标题2">标题2</h2><h3 id="标题3">标题3</h3><h4 id="标题4">标题4</h4><p>12354</p><hr /><table><thead><tr class="header"><th>12</th><th>123</th><th>1234</th></tr></thead><tbody><tr class="odd"><td>a</td><td>j</td><td>j</td></tr></tbody></table><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello world&quot;</span>)</span><br></pre></td></tr></table></figure><span id="more"></span><h1 id="第二章-群">第二章 群</h1><hr /><h2 id="第一节--合成法则">第一节--合成法则</h2><p><strong>合成法则</strong>：</p><blockquote><p>集合S中的合成法则是将S中的元素a,b合成为另一个元素</p><blockquote><p>想到一件有意思的事情，关于质因数分解，一般来说，两个元素的合成是一个信息减少的过程，但是两个质数通过乘法合成一个数字竟然没有信息的损失（不知道这么说对不对），总归可以用枚举来复原</p></blockquote><blockquote><p>但是对于加法来说就没有这种特例</p></blockquote></blockquote><p><strong>交换律和结合律</strong>：</p><p>其实对于一个集合，我们可以任意定义合成运算，无论我们定义的运算有没有结合律或者交换律</p><p>后面将看到，集合S及其上面满足结合律的运算构成群，如果这个运算还满足交换律，那这个群就是一种特殊的群(Able群)</p><hr /><p>有了合成法则，我们就可以定义S上面关于某个运算的恒等元(幺元)： <spanclass="math display">\[e为恒等元 if \ \forall a\in S,ae=ea=a\]</span> 性质：</p><ul><li><p>幺元唯一</p><blockquote><p><span class="math display">\[e_1a =ae_1= a(\forall a)\\e_2a = ae_2 =a(\forall a)\\e_1 e_2 = e_2\\e_1 e_2 = e_1\\\therefore e_1=e_2\]</span></p></blockquote></li><li><p>如果a有左逆l右逆r，则<code>la=e , ar=e ，l=r=a^-1</code></p></li></ul><blockquote><p><span class="math display">\[证明:l = le = lar = (la)r = er = r\]</span></p></blockquote><h2 id="第二节--群和子群">第二节--群和子群</h2><h4 id="群">群</h4><p>半群：</p><blockquote><ol type="1"><li>结合律</li><li>封闭性</li></ol></blockquote><p>幺半群： &gt; 1. 结合律 &gt; 2. 封闭性 &gt; 3. 幺元</p><p>群： &gt; 1. 结合律 &gt; 2. 封闭性 &gt; 3. 幺元 &gt; 4. 逆元</p><p>Able群(交换群）： &gt; 1. 结合律 &gt; 2. 封闭性 &gt; 3. 幺元 &gt; 4.逆元 &gt; 5. 交换律</p><p><strong>一些特殊群的记号</strong>：</p><ol type="1"><li></li></ol><p><span class="math display">\[GL_n = \{n \times n 可逆矩阵A\}\]</span></p><ol start="2" type="1"><li></li></ol><p><span class="math display">\[\begin {flalign}&amp;S_n = \{指标1,2，3,...,n的置换群\}\\&amp;也叫对称群\end{flalign}\]</span></p><p><strong>S3的结构</strong>：</p><p>使用一个置换和一个对换的组合即可表示出S3的所有元素： <spanclass="math display">\[x = (1 \ 2 \ 3);y = (1\ 2)\\S_3 = \{ 1,x,x^2,y,xy,x^2y\}\]</span></p><p><strong>定义:</strong>群的阶是指群的元素个数（可以有无限个）</p><p><strong>一个小问题，邓少强老师的书里面1.2关于群的定义有一个弱形式，即把幺元存在逆元存在换成左幺元存在和左逆元存在，如何证明等价性呢？</strong></p><h4 id="子群">子群</h4><p>条件：</p><blockquote><ol type="1"><li>封闭性</li><li>（结合律可以继承自父群）</li><li>幺元</li><li>逆元</li></ol></blockquote><p>定义： <span class="math display">\[\begin {align}H为群G上的非空子集，如果H在G的运算下构成群，则称H为G的子群，记为H \leG\\\end{align}\]</span> <strong>等价条件</strong>：</p><h2 id="第三节--整数加群的子群">第三节--整数加群的子群</h2><p>整数加群的子群必然可以写成<code>Za</code>，其中<code>a</code>为<code>S</code>中最小的正整数</p><p>证明：反证，构造</p>]]></content>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;标题1&quot;&gt;标题1&lt;/h1&gt;
-&lt;h2 id=&quot;标题2&quot;&gt;标题2&lt;/h2&gt;
-&lt;h3 id=&quot;标题3&quot;&gt;标题3&lt;/h3&gt;
-&lt;h4 id=&quot;标题4&quot;&gt;标题4&lt;/h4&gt;
-&lt;p&gt;12354&lt;/p&gt;
-&lt;hr /&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr class=&quot;header&quot;&gt;
-&lt;th&gt;12&lt;/th&gt;
-&lt;th&gt;123&lt;/th&gt;
-&lt;th&gt;1234&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&quot;odd&quot;&gt;
-&lt;td&gt;a&lt;/td&gt;
-&lt;td&gt;j&lt;/td&gt;
-&lt;td&gt;j&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    <content type="html"><![CDATA[<p>摘要摘要摘要摘要摘要</p><span id="more"></span><figure><img src="niu.png" alt="niu" /><figcaption aria-hidden="true">niu</figcaption></figure><figure><img src="GV5%5DQZD$N1RN%5B%PAHG6O%5DQ.gif" alt="img" /><figcaption aria-hidden="true">img</figcaption></figure><h1 id="标题1">标题1</h1><h2 id="标题2">标题2</h2><h3 id="标题3">标题3</h3><h4 id="标题4">标题4</h4><p>12354</p><hr /><table><thead><tr class="header"><th>12</th><th>123</th><th>1234</th></tr></thead><tbody><tr class="odd"><td>a</td><td>j</td><td>j</td></tr></tbody></table><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello world&quot;</span>)</span><br></pre></td></tr></table></figure><p>这是一条行内公式<span class="math inline">\(\phi : G_1 \rightarrowG_2\)</span> <span class="math display">\[\rightarrow \\\Rightarrow \\\\abc\]</span></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">a--&gt;b</span><br></pre></td></tr></table></figure><h1 id="第二章-群">第二章 群</h1><hr /><h2 id="第一节--合成法则">第一节--合成法则</h2><p><strong>合成法则</strong>：</p><blockquote><p>集合S中的合成法则是将S中的元素a,b合成为另一个元素</p><blockquote><p>想到一件有意思的事情，关于质因数分解，一般来说，两个元素的合成是一个信息减少的过程，但是两个质数通过乘法合成一个数字竟然没有信息的损失（不知道这么说对不对），总归可以用枚举来复原</p></blockquote><blockquote><p>但是对于加法来说就没有这种特例</p></blockquote></blockquote><p><strong>交换律和结合律</strong>：</p><p>其实对于一个集合，我们可以任意定义合成运算，无论我们定义的运算有没有结合律或者交换律</p><p>后面将看到，集合S及其上面满足结合律的运算构成群，如果这个运算还满足交换律，那这个群就是一种特殊的群(Able群)</p><hr /><p>有了合成法则，我们就可以定义S上面关于某个运算的恒等元(幺元)： <spanclass="math display">\[e为恒等元 if \ \forall a\in S,ae=ea=a\]</span> 性质：</p><ul><li><p>幺元唯一</p><blockquote><p><span class="math display">\[e_1a =ae_1= a(\forall a)\\e_2a = ae_2 =a(\forall a)\\e_1 e_2 = e_2\\e_1 e_2 = e_1\\\therefore e_1=e_2\]</span></p></blockquote></li><li><p>如果a有左逆l右逆r，则<code>la=e , ar=e ，l=r=a^-1</code></p></li></ul><blockquote><p><span class="math display">\[证明:l = le = lar = (la)r = er = r\]</span></p></blockquote><h2 id="第二节--群和子群">第二节--群和子群</h2><h4 id="群">群</h4><p>半群：</p><blockquote><ol type="1"><li>结合律</li><li>封闭性</li></ol></blockquote><p>幺半群：</p><blockquote><ol type="1"><li>结合律</li><li>封闭性</li><li>幺元</li></ol></blockquote><p>群：</p><blockquote><ol type="1"><li>结合律</li><li>封闭性</li><li>幺元</li><li>逆元</li></ol></blockquote><p>Able群(交换群）：</p><blockquote><ol type="1"><li>结合律</li><li>封闭性</li><li>幺元</li><li>逆元</li><li>交换律</li></ol></blockquote><p><strong>一些特殊群的记号</strong>：</p><ol type="1"><li></li></ol><p><span class="math display">\[GL_n = \{n \times n 可逆矩阵A\}\]</span></p><ol start="2" type="1"><li></li></ol><p><span class="math display">\[\begin {flalign}&amp;S_n = \{指标1,2，3,...,n的置换群\}\\&amp;也叫对称群\end{flalign}\]</span></p><p><strong>S3的结构</strong>：</p><p>使用一个置换和一个对换的组合即可表示出S3的所有元素： <spanclass="math display">\[x = (1 \ 2 \ 3);y = (1\ 2)\\S_3 = \{ 1,x,x^2,y,xy,x^2y\}\]</span></p><p><strong>定义:</strong>群的阶是指群的元素个数（可以有无限个）</p><p><strong>一个小问题，邓少强老师的书里面1.2关于群的定义有一个弱形式，即把幺元存在逆元存在换成左幺元存在和左逆元存在，如何证明等价性呢？</strong></p><h4 id="子群">子群</h4><p>条件：</p><blockquote><ol type="1"><li>封闭性</li><li>（结合律可以继承自父群）</li><li>幺元</li><li>逆元</li></ol></blockquote><p>定义： <span class="math display">\[\begin {align}H为群G上的非空子集，如果H在G的运算下构成群，则称H为G的子群，记为H \leG\\\end{align}\]</span> <strong>等价条件</strong>：</p><h2 id="第三节--整数加群的子群">第三节--整数加群的子群</h2><p>整数加群的子群必然可以写成<code>Za</code>，其中<code>a</code>为<code>S</code>中最小的正整数</p><p>证明：反证，构造</p>]]></content>
     
     
+    <summary type="html">&lt;p&gt;摘要摘要摘要摘要摘要&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="-test" scheme="http://banana889.github.io/categories/test/"/>
     
     
     <category term="Tag1" scheme="http://banana889.github.io/tags/Tag1/"/>
     
     <category term="Tag2" scheme="http://banana889.github.io/tags/Tag2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TEST 测试博客的功能2</title>
-    <link href="http://banana889.github.io/2022/01/15/yest22/test2/"/>
-    <id>http://banana889.github.io/2022/01/15/yest22/test2/</id>
-    <published>2022-01-15T02:08:45.837Z</published>
-    <updated>2022-01-15T02:41:55.103Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="标题1">标题1</h1><h2 id="标题2">标题2</h2><h3 id="标题3">标题3</h3><h4 id="标题4">标题4</h4><p>12354</p><hr /><table><thead><tr class="header"><th>12</th><th>123</th><th>1234</th></tr></thead><tbody><tr class="odd"><td>a</td><td>j</td><td>j</td></tr></tbody></table><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello world&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello world&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello world&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello world&quot;</span>)</span><br></pre></td></tr></table></figure><table style="width:6%;"><colgroup><col style="width: 5%" /></colgroup><thead><tr class="header"><th>title:math</th></tr></thead><tbody><tr class="odd"><td># 第二章 群</td></tr></tbody></table><h2 id="第一节--合成法则">第一节--合成法则</h2><p><strong>合成法则</strong>：</p><blockquote><p>集合S中的合成法则是将S中的元素a,b合成为另一个元素</p><blockquote><p>想到一件有意思的事情，关于质因数分解，一般来说，两个元素的合成是一个信息减少的过程，但是两个质数通过乘法合成一个数字竟然没有信息的损失（不知道这么说对不对），总归可以用枚举来复原</p></blockquote><blockquote><p>但是对于加法来说就没有这种特例</p></blockquote></blockquote><p><strong>交换律和结合律</strong>：</p><p>其实对于一个集合，我们可以任意定义合成运算，无论我们定义的运算有没有结合律或者交换律</p><p>后面将看到，集合S及其上面满足结合律的运算构成群，如果这个运算还满足交换律，那这个群就是一种特殊的群(Able群)</p><hr /><p>有了合成法则，我们就可以定义S上面关于某个运算的恒等元(幺元)： <spanclass="math display">\[e为恒等元 if \ \forall a\in S,ae=ea=a\]</span> 性质：</p><ul><li><p>幺元唯一</p><blockquote><p><span class="math display">\[e_1a =ae_1= a(\forall a)\\e_2a = ae_2 =a(\forall a)\\e_1 e_2 = e_2\\e_1 e_2 = e_1\\\therefore e_1=e_2\]</span></p></blockquote></li><li><p>如果a有左逆l右逆r，则<code>la=e , ar=e ，l=r=a^-1</code></p></li></ul><blockquote><p><span class="math display">\[证明:l = le = lar = (la)r = er = r\]</span></p></blockquote><h2 id="第二节--群和子群">第二节--群和子群</h2><h4 id="群">群</h4><p>半群：</p><blockquote><ol type="1"><li>结合律</li><li>封闭性</li></ol></blockquote><p>幺半群： &gt; 1. 结合律 &gt; 2. 封闭性 &gt; 3. 幺元</p><p>群： &gt; 1. 结合律 &gt; 2. 封闭性 &gt; 3. 幺元 &gt; 4. 逆元</p><p>Able群(交换群）： &gt; 1. 结合律 &gt; 2. 封闭性 &gt; 3. 幺元 &gt; 4.逆元 &gt; 5. 交换律</p><p><strong>一些特殊群的记号</strong>：</p><ol type="1"><li></li></ol><p><span class="math display">\[GL_n = \{n \times n 可逆矩阵A\}\]</span></p><ol start="2" type="1"><li></li></ol><p><span class="math display">\[\begin {flalign}&amp;S_n = \{指标1,2，3,...,n的置换群\}\\&amp;也叫对称群\end{flalign}\]</span></p><p><strong>S3的结构</strong>：</p><p>使用一个置换和一个对换的组合即可表示出S3的所有元素： <spanclass="math display">\[x = (1 \ 2 \ 3);y = (1\ 2)\\S_3 = \{ 1,x,x^2,y,xy,x^2y\}\]</span></p><p><strong>定义:</strong>群的阶是指群的元素个数（可以有无限个）</p><p><strong>一个小问题，邓少强老师的书里面1.2关于群的定义有一个弱形式，即把幺元存在逆元存在换成左幺元存在和左逆元存在，如何证明等价性呢？</strong></p><h4 id="子群">子群</h4><p>条件：</p><blockquote><ol type="1"><li>封闭性</li><li>（结合律可以继承自父群）</li><li>幺元</li><li>逆元</li></ol></blockquote><p>定义： <span class="math display">\[\begin {align}H为群G上的非空子集，如果H在G的运算下构成群，则称H为G的子群，记为H \leG\\\end{align}\]</span> <strong>等价条件</strong>：</p><h2 id="第三节--整数加群的子群">第三节--整数加群的子群</h2><p>整数加群的子群必然可以写成<code>Za</code>，其中<code>a</code>为<code>S</code>中最小的正整数</p><p>证明：反证，构造</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;标题1&quot;&gt;标题1&lt;/h1&gt;
-&lt;h2 id=&quot;标题2&quot;&gt;标题2&lt;/h2&gt;
-&lt;h3 id=&quot;标题3&quot;&gt;标题3&lt;/h3&gt;
-&lt;h4 id=&quot;标题4&quot;&gt;标题4&lt;/h4&gt;
-&lt;p&gt;12354&lt;/p&gt;
-&lt;hr /&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr clas</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>group</title>
-    <link href="http://banana889.github.io/2022/01/15/group/group/"/>
-    <id>http://banana889.github.io/2022/01/15/group/group/</id>
-    <published>2022-01-15T01:47:51.965Z</published>
-    <updated>2022-01-15T02:40:08.932Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第二章-群">第二章 群</h1><hr /><h2 id="第一节--合成法则">第一节--合成法则</h2><p><strong>合成法则</strong>：</p><blockquote><p>集合S中的合成法则是将S中的元素a,b合成为另一个元素</p><blockquote><p>想到一件有意思的事情，关于质因数分解，一般来说，两个元素的合成是一个信息减少的过程，但是两个质数通过乘法合成一个数字竟然没有信息的损失（不知道这么说对不对），总归可以用枚举来复原</p><p>但是对于加法来说就没有这种特例</p></blockquote></blockquote><p><strong>交换律和结合律</strong>：</p><p>其实对于一个集合，我们可以任意定义合成运算，无论我们定义的运算有没有结合律或者交换律</p><p>后面将看到，集合S及其上面满足结合律的运算构成群，如果这个运算还满足交换律，那这个群就是一种特殊的群(Able群)</p><hr /><p>有了合成法则，我们就可以定义S上面关于某个运算的恒等元(幺元)： <spanclass="math display">\[e为恒等元 if \ \forall a\in S,ae=ea=a\]</span> 性质：</p><ul><li><p>幺元唯一</p><blockquote><p><span class="math display">\[e_1a =ae_1= a(\forall a)\\e_2a = ae_2 =a(\forall a)\\e_1 e_2 = e_2\\e_1 e_2 = e_1\\\therefore e_1=e_2\]</span></p></blockquote></li><li><p>如果a有左逆l右逆r，则<code>la=e , ar=e ，l=r=a^-1</code></p></li></ul><blockquote><p><span class="math display">\[证明:l = le = lar = (la)r = er = r\]</span></p></blockquote><h2 id="第二节--群和子群">第二节--群和子群</h2><h4 id="群">群</h4><p>半群：</p><blockquote><ol type="1"><li>结合律</li><li>封闭性</li></ol></blockquote><p>幺半群： &gt; 1. 结合律 &gt; 2. 封闭性 &gt; 3. 幺元</p><p>群： &gt; 1. 结合律 &gt; 2. 封闭性 &gt; 3. 幺元 &gt; 4. 逆元</p><p>Able群(交换群）： &gt; 1. 结合律 &gt; 2. 封闭性 &gt; 3. 幺元 &gt; 4.逆元 &gt; 5. 交换律</p><p><strong>一些特殊群的记号</strong>：</p><ol type="1"><li></li></ol><p><span class="math display">\[GL_n = \{n \times n 可逆矩阵A\}\]</span></p><ol start="2" type="1"><li></li></ol><p><span class="math display">\[\begin {flalign}&amp;S_n = \{指标1,2，3,...,n的置换群\}\\&amp;也叫对称群\end{flalign}\]</span></p><p><strong>S3的结构</strong>：</p><p>使用一个置换和一个对换的组合即可表示出S3的所有元素： <spanclass="math display">\[x = (1 \ 2 \ 3);y = (1\ 2)\\S_3 = \{ 1,x,x^2,y,xy,x^2y\}\]</span></p><p><strong>定义:</strong>群的阶是指群的元素个数（可以有无限个）</p><p><strong>一个小问题，邓少强老师的书里面1.2关于群的定义有一个弱形式，即把幺元存在逆元存在换成左幺元存在和左逆元存在，如何证明等价性呢？</strong></p><h4 id="子群">子群</h4><p>条件：</p><blockquote><ol type="1"><li>封闭性</li><li>（结合律可以继承自父群）</li><li>幺元</li><li>逆元</li></ol></blockquote><p>定义： <span class="math display">\[\begin {align}H为群G上的非空子集，如果H在G的运算下构成群，则称H为G的子群，记为H \leG\\\end{align}\]</span> <strong>等价条件</strong>：</p><h2 id="第三节--整数加群的子群">第三节--整数加群的子群</h2><p>整数加群的子群必然可以写成<code>Za</code>，其中<code>a</code>为<code>S</code>中最小的正整数</p><p>证明：反证，构造</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;第二章-群&quot;&gt;第二章 群&lt;/h1&gt;
-&lt;hr /&gt;
-&lt;h2 id=&quot;第一节--合成法则&quot;&gt;第一节--合成法则&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;合成法则&lt;/strong&gt;：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;集合S中的合成法则是将S中的元素a,b合成为</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>TEST 测试博客的功能</title>
-    <link href="http://banana889.github.io/2022/01/06/test11/test/"/>
-    <id>http://banana889.github.io/2022/01/06/test11/test/</id>
-    <published>2022-01-06T06:25:06.864Z</published>
-    <updated>2022-01-15T02:41:45.995Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="标题1">标题1</h1><h2 id="标题2">标题2</h2><h3 id="标题3">标题3</h3><h4 id="标题4">标题4</h4><p>12354</p><hr /><table><thead><tr class="header"><th>12</th><th>123</th><th>1234</th></tr></thead><tbody><tr class="odd"><td>a</td><td>j</td><td>j</td></tr></tbody></table><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello world&quot;</span>)</span><br></pre></td></tr></table></figure><p><code>cnx</code></p><p><span class="math display">\[a = b^2\\(1-x)^{-1} = \sum _{n=0} ^\inf x^n\]</span> aaaaaaaaaaba</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;标题1&quot;&gt;标题1&lt;/h1&gt;
-&lt;h2 id=&quot;标题2&quot;&gt;标题2&lt;/h2&gt;
-&lt;h3 id=&quot;标题3&quot;&gt;标题3&lt;/h3&gt;
-&lt;h4 id=&quot;标题4&quot;&gt;标题4&lt;/h4&gt;
-&lt;p&gt;12354&lt;/p&gt;
-&lt;hr /&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr clas</summary>
-      
-    
-    
-    
     
   </entry>
   

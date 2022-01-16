@@ -4,34 +4,34 @@
   <url>
     <loc>http://banana889.github.io/2022/01/15/z/</loc>
     
-    <lastmod>2022-01-15</lastmod>
+    <lastmod>2022-01-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://banana889.github.io/2022/01/15/yest22/test2/</loc>
+    <loc>http://banana889.github.io/categories/index.html</loc>
     
-    <lastmod>2022-01-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://banana889.github.io/2022/01/06/test11/test/</loc>
-    
-    <lastmod>2022-01-15</lastmod>
+    <lastmod>2022-01-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://banana889.github.io/2022/01/15/group/group/</loc>
+    <loc>http://banana889.github.io/about/index.html</loc>
     
-    <lastmod>2022-01-15</lastmod>
+    <lastmod>2022-01-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://banana889.github.io/tags/index.html</loc>
+    
+    <lastmod>2022-01-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -40,7 +40,7 @@
 
   <url>
     <loc>http://banana889.github.io/</loc>
-    <lastmod>2022-01-15</lastmod>
+    <lastmod>2022-01-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -48,18 +48,25 @@
   
   <url>
     <loc>http://banana889.github.io/tags/Tag1/</loc>
-    <lastmod>2022-01-15</lastmod>
+    <lastmod>2022-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://banana889.github.io/tags/Tag2/</loc>
-    <lastmod>2022-01-15</lastmod>
+    <lastmod>2022-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
 
+  
+  <url>
+    <loc>http://banana889.github.io/categories/test/</loc>
+    <lastmod>2022-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 </urlset>
