@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://banana889.github.io/2022/01/22/%E9%97%B2%E8%AF%9D/2022-1-22-%E7%9C%8B%E9%9B%AA/</loc>
+    <loc>http://banana889.github.io/2022/01/24/%E6%95%B0%E5%AD%A6/2022-1-24-%E8%BF%90%E7%AD%B9%E5%AD%A6---%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98/</loc>
     
-    <lastmod>2022-01-22</lastmod>
+    <lastmod>2022-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -13,7 +13,16 @@
   <url>
     <loc>http://banana889.github.io/2022/01/21/%E4%BB%A3%E6%95%B0/2022-1-21-%E4%BB%A3%E6%95%B0%E7%AC%AC4%E7%AB%A0---%E5%9F%9F/</loc>
     
-    <lastmod>2022-01-21</lastmod>
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://banana889.github.io/2022/01/22/%E9%97%B2%E8%AF%9D/2022-1-22-%E7%9C%8B%E9%9B%AA/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -76,7 +85,7 @@
 
   <url>
     <loc>http://banana889.github.io/</loc>
-    <lastmod>2022-01-22</lastmod>
+    <lastmod>2022-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -84,21 +93,28 @@
   
   <url>
     <loc>http://banana889.github.io/tags/%E6%95%B0%E5%AD%A6/</loc>
-    <lastmod>2022-01-22</lastmod>
+    <lastmod>2022-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://banana889.github.io/tags/%E4%BB%A3%E6%95%B0/</loc>
-    <lastmod>2022-01-22</lastmod>
+    <lastmod>2022-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://banana889.github.io/tags/%E9%97%B2%E8%AF%9D/</loc>
-    <lastmod>2022-01-22</lastmod>
+    <lastmod>2022-01-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://banana889.github.io/tags/%E8%BF%90%E7%AD%B9%E5%AD%A6/</loc>
+    <lastmod>2022-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -107,14 +123,14 @@
   
   <url>
     <loc>http://banana889.github.io/categories/%E6%95%B0%E5%AD%A6/</loc>
-    <lastmod>2022-01-22</lastmod>
+    <lastmod>2022-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://banana889.github.io/categories/%E9%97%B2%E8%AF%9D/</loc>
-    <lastmod>2022-01-22</lastmod>
+    <lastmod>2022-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
