@@ -110,20 +110,6 @@
 
   
   <url>
-    <loc>http://banana889.github.io/tags/%E6%95%B0%E5%AD%A6/</loc>
-    <lastmod>2022-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://banana889.github.io/tags/%E4%BB%A3%E6%95%B0/</loc>
-    <lastmod>2022-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://banana889.github.io/tags/LaTeX/</loc>
     <lastmod>2022-02-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -138,14 +124,21 @@
   </url>
   
   <url>
-    <loc>http://banana889.github.io/tags/%E8%BF%90%E7%AD%B9%E5%AD%A6/</loc>
+    <loc>http://banana889.github.io/tags/MMA/</loc>
     <lastmod>2022-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://banana889.github.io/tags/MMA/</loc>
+    <loc>http://banana889.github.io/tags/%E6%95%B0%E5%AD%A6/</loc>
+    <lastmod>2022-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://banana889.github.io/tags/%E4%BB%A3%E6%95%B0/</loc>
     <lastmod>2022-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -158,17 +151,24 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>http://banana889.github.io/tags/%E8%BF%90%E7%AD%B9%E5%AD%A6/</loc>
+    <lastmod>2022-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
-    <loc>http://banana889.github.io/categories/%E6%95%B0%E5%AD%A6/</loc>
+    <loc>http://banana889.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2022-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://banana889.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>http://banana889.github.io/categories/%E6%95%B0%E5%AD%A6/</loc>
     <lastmod>2022-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
