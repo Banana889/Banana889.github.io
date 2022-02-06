@@ -6,7 +6,7 @@
   <link href="http://banana889.github.io/atom.xml" rel="self"/>
   
   <link href="http://banana889.github.io/"/>
-  <updated>2022-02-06T10:31:31.890Z</updated>
+  <updated>2022-02-04T06:53:29.129Z</updated>
   <id>http://banana889.github.io/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>1</title>
-    <link href="http://banana889.github.io/2022/02/06/%E5%B7%A5%E5%85%B7/t/"/>
-    <id>http://banana889.github.io/2022/02/06/%E5%B7%A5%E5%85%B7/t/</id>
-    <published>2022-02-06T02:39:00.000Z</published>
-    <updated>2022-02-06T10:31:31.890Z</updated>
-    
-    <content type="html"><![CDATA[<p>1</p><span id="more"></span><p>1</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;1&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="1" scheme="http://banana889.github.io/categories/1/"/>
-    
-    
-    <category term="1" scheme="http://banana889.github.io/tags/1/"/>
-    
-  </entry>
   
   <entry>
     <title>LaTeX初体验</title>

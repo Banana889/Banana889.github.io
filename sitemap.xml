@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://banana889.github.io/2022/02/06/%E5%B7%A5%E5%85%B7/t/</loc>
-    
-    <lastmod>2022-02-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://banana889.github.io/tags/index.html</loc>
     
     <lastmod>2022-02-06</lastmod>
@@ -119,27 +110,6 @@
 
   
   <url>
-    <loc>http://banana889.github.io/tags/LaTeX/</loc>
-    <lastmod>2022-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://banana889.github.io/tags/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2022-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://banana889.github.io/tags/MMA/</loc>
-    <lastmod>2022-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://banana889.github.io/tags/%E6%95%B0%E5%AD%A6/</loc>
     <lastmod>2022-02-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -154,13 +124,6 @@
   </url>
   
   <url>
-    <loc>http://banana889.github.io/tags/%E9%97%B2%E8%AF%9D/</loc>
-    <lastmod>2022-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://banana889.github.io/tags/%E8%BF%90%E7%AD%B9%E5%AD%A6/</loc>
     <lastmod>2022-02-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -168,20 +131,34 @@
   </url>
   
   <url>
-    <loc>http://banana889.github.io/tags/1/</loc>
+    <loc>http://banana889.github.io/tags/MMA/</loc>
+    <lastmod>2022-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://banana889.github.io/tags/%E9%97%B2%E8%AF%9D/</loc>
+    <lastmod>2022-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://banana889.github.io/tags/LaTeX/</loc>
+    <lastmod>2022-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://banana889.github.io/tags/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2022-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
 
-  
-  <url>
-    <loc>http://banana889.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2022-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
   
   <url>
     <loc>http://banana889.github.io/categories/%E6%95%B0%E5%AD%A6/</loc>
@@ -191,14 +168,14 @@
   </url>
   
   <url>
-    <loc>http://banana889.github.io/categories/%E9%97%B2%E8%AF%9D/</loc>
+    <loc>http://banana889.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2022-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://banana889.github.io/categories/1/</loc>
+    <loc>http://banana889.github.io/categories/%E9%97%B2%E8%AF%9D/</loc>
     <lastmod>2022-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
