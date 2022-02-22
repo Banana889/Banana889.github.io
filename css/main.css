@@ -1650,7 +1650,7 @@ pre code {
   display: none;
 }
 .theme-link {
-  color: #f5f5f5;
+  color: $graydark;
 }
 @-moz-keyframes icon-animate {
   0%, 100% {
@@ -2903,20 +2903,20 @@ mjx-container[display='true'] + br {
   }
 }
 body {
-  background-image: url("/images/background.jpg");
+  background-image: url("/images/bg.gif");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: 50% 50%;
+  background-position: 0% 100%;
 }
 .post-block {
-  opacity: 0.9;
+  opacity: 1;
 }
 .sidebar {
   background-color: transparent;
   opacity: 1;
 }
 .header-inner {
-  background: rgba(255,255,255,0.7);
+  background: #fff;
 }
 .popup {
   opacity: 0.7;
