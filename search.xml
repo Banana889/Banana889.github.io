@@ -833,7 +833,17 @@ test.c -o test.i</code></p></li>
 </ul>
 <h1 id="分文件编程">分文件编程</h1>
 <h2 id="使用gcc实现">使用gcc实现</h2>
-<h2 id="在vs中实现">在VS中实现</h2>
+<p>有一个主文件，包含 main函数</p>
+<p>如果要将其它函数的实现写在其他文件中，需要一个头文件<code>function.h</code>头文件里面写函数的声明，和头文件这个名字相同的<code>.c</code>文件（function.c）里面写函数的实现。</p>
+<p>编译有两种方法</p>
+<ul>
+<li><p>直接一次性编译全部文件生成可执行文件</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc [所有.c文件]</span><br></pre></td></tr></table></figure></p>
+<p>选择.c文件的时候支持通配符，比如要编译这个文件夹里所有的<code>*.c</code>文件可以</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc *.c</span><br></pre></td></tr></table></figure></p></li>
+<li><p>先编译单个文件再链接</p>
+<p>这样做的好处是当修改了多个文件中的一个时，其他文件不必重新编译，适用于文件较多的情况。</p></li>
+</ul>
 <h1 id="预处理命令">预处理命令</h1>
 <p>以下是一些常用的预处理命令，用来控制哪些代码参加编译，哪些不参加</p>
 <ul>
