@@ -20,29 +20,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"banana889.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null,"activeClass":"livere"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="想来有些矫情，就不发朋友圈了（doge">
+<meta name="description" content="本来打算3.4写完作业就写篇总结的，硬是给我拖到了现在... 昨天敲完代码就开始摸鱼摸完鱼八点就睡觉今天醒来写了一篇基物实验报告又开始摸鱼还拿拉姆的电脑打了半天游戏">
 <meta property="og:type" content="article">
-<meta property="og:title" content="看雪">
-<meta property="og:url" content="http://banana889.github.io/2022/01/22/%E9%97%B2%E8%AF%9D/2022-1-22-snow/index.html">
+<meta property="og:title" content="OO_HW1思路总结——一种极简的实现方法">
+<meta property="og:url" content="http://banana889.github.io/2022/03/05/OO/2022-3-5-OO_HW1%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93%E2%80%94%E2%80%94%E4%B8%80%E7%A7%8D%E6%9E%81%E7%AE%80%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="Banana的博客">
-<meta property="og:description" content="想来有些矫情，就不发朋友圈了（doge">
+<meta property="og:description" content="本来打算3.4写完作业就写篇总结的，硬是给我拖到了现在... 昨天敲完代码就开始摸鱼摸完鱼八点就睡觉今天醒来写了一篇基物实验报告又开始摸鱼还拿拉姆的电脑打了半天游戏">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://banana889.github.io/2022/01/22/%E9%97%B2%E8%AF%9D/2022-1-22-snow/29774825.png">
-<meta property="article:published_time" content="2022-01-22T02:25:00.000Z">
-<meta property="article:modified_time" content="2022-03-02T04:54:34.776Z">
+<meta property="article:published_time" content="2022-03-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-05T13:44:31.617Z">
 <meta property="article:author" content="CNX">
+<meta property="article:tag" content="OO">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://banana889.github.io/2022/01/22/%E9%97%B2%E8%AF%9D/2022-1-22-snow/29774825.png">
 
 
-<link rel="canonical" href="http://banana889.github.io/2022/01/22/%E9%97%B2%E8%AF%9D/2022-1-22-snow/">
+<link rel="canonical" href="http://banana889.github.io/2022/03/05/OO/2022-3-5-OO_HW1%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93%E2%80%94%E2%80%94%E4%B8%80%E7%A7%8D%E6%9E%81%E7%AE%80%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://banana889.github.io/2022/01/22/%E9%97%B2%E8%AF%9D/2022-1-22-snow/","path":"2022/01/22/闲话/2022-1-22-snow/","title":"看雪"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://banana889.github.io/2022/03/05/OO/2022-3-5-OO_HW1%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93%E2%80%94%E2%80%94%E4%B8%80%E7%A7%8D%E6%9E%81%E7%AE%80%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/","path":"2022/03/05/OO/2022-3-5-OO_HW1思路总结——一种极简的实现方法/","title":"OO_HW1思路总结——一种极简的实现方法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>看雪 | Banana的博客</title>
+<title>OO_HW1思路总结——一种极简的实现方法 | Banana的博客</title>
   
 
 
@@ -139,7 +138,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -152,6 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E4%BD%93%E8%AF%84%E4%BB%B7"><span class="nav-number">1.</span> <span class="nav-text">总体评价</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E6%9E%90"><span class="nav-number">2.1.</span> <span class="nav-text">解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E7%BB%84%E7%BB%87%E6%96%B9%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">数据的组织方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">心路历程</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -224,7 +224,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://banana889.github.io/2022/01/22/%E9%97%B2%E8%AF%9D/2022-1-22-snow/">
+    <link itemprop="mainEntityOfPage" href="http://banana889.github.io/2022/03/05/OO/2022-3-5-OO_HW1%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93%E2%80%94%E2%80%94%E4%B8%80%E7%A7%8D%E6%9E%81%E7%AE%80%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -237,7 +237,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          看雪
+          OO_HW1思路总结——一种极简的实现方法
         </h1>
 
         <div class="post-meta-container">
@@ -247,15 +247,18 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-01-22 10:25:00" itemprop="dateCreated datePublished" datetime="2022-01-22T10:25:00+08:00">2022-01-22</time>
+      <time title="创建时间：2022-03-05 00:00:00 / 修改时间：21:44:31" itemprop="dateCreated datePublished" datetime="2022-03-05T00:00:00+08:00">2022-03-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-03-02 12:54:34" itemprop="dateModified" datetime="2022-03-02T12:54:34+08:00">2022-03-02</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" itemprop="url" rel="index"><span itemprop="name">面向对象</span></a>
+        </span>
     </span>
 
   
@@ -272,14 +275,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>174</span>
+      <span>1.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -290,19 +293,54 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>想来有些矫情，就不发朋友圈了（doge</p>
+        <p>本来打算3.4写完作业就写篇总结的，硬是给我拖到了现在...</p>
+<p><del>昨天敲完代码就开始摸鱼摸完鱼八点就睡觉今天醒来写了一篇基物实验报告又开始摸鱼还拿拉姆的电脑打了半天游戏</del></p>
 <span id="more"></span>
-<p><img src="29774825.png" /></p>
-<p>雪不在乎落下后会被行人践踏，被柏油路染黑，被粗盐降低熔点......只是落</p>
-<blockquote>
-<p>林妹妹看到这种场景大概也会伤心一场吧</p>
+<h1 id="总体评价">总体评价</h1>
+<p>我对自己的这次作业的完成还是比较满意的：</p>
+<ul>
+<li>虽然代码写的乱七八糟但是很简洁</li>
+<li>另一个满意的地方体现在策略方面：在不用预解析做不出来的情况下更换了方法，用预解析写完了之后突然灵光一现，第二天很快就做了出来（我要时时刻刻提醒自己：<strong>不要钻牛角尖</strong>）</li>
+</ul>
+<h1 id="实现方法">实现方法</h1>
+<blockquote class="blockquote-center">
+<p>如非必要，勿增实体。</p>
+<p>——奥卡姆剃刀原理</p>
+
 </blockquote>
-<p>无所谓落在哪里，想来也不会因为落到马路上难过</p>
-<p>雪是不会思考的，只需要受力学的支配，随便到哪里，还挺幸福</p>
+<p>其实是在写总结的时候才想到这句，<del>为自己的偷懒找个理由</del></p>
+<h2 id="解析">解析</h2>
+<p>第一步：去掉所有的空格和<code>'\t'</code></p>
+<p>我没有刻意去学“向下递归”（懒），这个词看起来似乎很好理解：就是“向下”+“递归”</p>
+<p>就是把大问题转化为小问题，直到数量有限的、满足一定格式的最小“原子”。更加形象的说，是一种类似于剥洋葱的方法（我不知道我理解的对不对）。所以解析的难点就在于<strong>从哪里开始剥这个洋葱</strong>，以及<strong>如何把这一层洋葱皮完整的剥下来</strong>。</p>
+<p>洋葱皮就是一层一层的括号、加减号、乘号......</p>
+<p>(插一句：我是在那天上完机看了别人的代码之后才开窍的)</p>
+<p>知道了应该做什么之后，下一步就应该研究怎么做。</p>
+<p>要点在于：只要找到第一个<strong>能把表达式分成两部分的</strong>加减号/乘号/幂运算符号，就能把表达式分为两个部分。</p>
+<p>进一步地：只要找到<strong>括号外</strong>第一串连着的、不在待解析字符串开头的加减号，或者括号外第一个乘法符号，或者括号外第一个乘方符号，就可以以这个为界，将整个表达式分为两个部分。</p>
+<p>这个具体实现写几个函数就很方便！</p>
+<blockquote>
+<p>在这个过程中还要关注每一项的正负，我是这么处理的：</p>
+<p>把连着的一串正负号看成一个整体，<strong>作用于</strong>其后紧跟着的项，在递归计算出后面这一项之后取反或者不取反。这一堆正负号就相当于洋葱的一层皮，扒掉，再解析后面的部分。</p>
+</blockquote>
+<h2 id="数据的组织方式">数据的组织方式</h2>
+<p>我觉得自己的方案简单主要体现在这一点。</p>
+<p>最终参与输出的只有这么几个类：Term类（多项式的项）、Number类（单独的数字,这个其实是Term的子类）、Sum类（这三种类的对象的求和，也许叫Add更合适，因为是两项求和）。</p>
+<p>乘法和乘方呢？？都被我在解析过程中识别并处理掉了。（上面三种基本类都是支持加减乘运算的）</p>
+<p>所以就是说，我这个程序运行的整个过程中数据就经历了两种形态：<strong>原始字符串</strong>和<strong>解析后的Sum类</strong>。</p>
+<p>这样输出也很简单。</p>
+<p><del>我这种脑子比较简单的人可能就适合简单的方法</del></p>
+<h1 id="心路历程">心路历程</h1>
+<p>最最开始，我想着先把原始表达式用加减号拆分，拆分之后呢？（那时候还不清楚递归具体应该怎么实现</p>
+<p>我又愚蠢的构造了一个人不人鬼不鬼的“表达式类型”：带正负号的字符串（笑死），然后就不知所措了，似乎这个愚蠢的类把自己保护了起来，我：？？？</p>
+<p>中间还走了一段歪路：我最初想的是Sum里面放一个包含参与求和的项的ArrayList，这样也有些蠢，没有发挥递归的精神。这样处理很麻烦，复杂度远超出了我的能力（也许优点是速度比较快？）</p>
+<p>最后想到上面那种实现方法是因为想到<strong>通过找括号外的特殊符号</strong>的办法来拆分字符串，然后就做出来了。</p>
 <hr />
-<p>木心有句话：</p>
-<p><code>我认为在细节上大自然看起来是不徒劳——大自然整个徒劳。</code></p>
-<p>是徒劳，不过结果不重要，过程才重要</p>
+<blockquote class="blockquote-center">
+<p>我不知道花了多久，才逐渐学会承认自己能力有限。</p>
+
+</blockquote>
+<p>这篇总结就这样啦！<del>我本来也想写一篇能发讨论区的文章，可是鸽太久了，人家代码都写完了，没脸发，下次吧</del></p>
 
     </div>
 
@@ -320,7 +358,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://banana889.github.io/2022/01/22/%E9%97%B2%E8%AF%9D/2022-1-22-snow/" title="看雪">http://banana889.github.io/2022/01/22/闲话/2022-1-22-snow/</a>
+      <a href="http://banana889.github.io/2022/03/05/OO/2022-3-5-OO_HW1%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93%E2%80%94%E2%80%94%E4%B8%80%E7%A7%8D%E6%9E%81%E7%AE%80%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" title="OO_HW1思路总结——一种极简的实现方法">http://banana889.github.io/2022/03/05/OO/2022-3-5-OO_HW1思路总结——一种极简的实现方法/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -328,19 +366,19 @@
 </ul>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/OO/" rel="tag"># OO</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/01/21/%E4%BB%A3%E6%95%B0/2022-1-21-%E4%BB%A3%E6%95%B0%E7%AC%AC4%E7%AB%A0---%E5%9F%9F/" rel="prev" title="代数第4章---域">
-                  <i class="fa fa-chevron-left"></i> 代数第4章---域
+                <a href="/2022/03/02/%E6%9C%AA%E5%88%86%E7%B1%BB/%E5%9F%BA%E7%89%A92/" rel="prev" title="2022春基物实验2">
+                  <i class="fa fa-chevron-left"></i> 2022春基物实验2
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/01/23/%E5%B7%A5%E5%85%B7/Mathematica/" rel="next" title="MMA---基础">
-                  MMA---基础 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
