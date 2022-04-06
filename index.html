@@ -354,7 +354,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-04-06 00:00:00 / 修改时间：10:45:54" itemprop="dateCreated datePublished" datetime="2022-04-06T00:00:00+08:00">2022-04-06</time>
+      <time title="创建时间：2022-04-06 00:00:00 / 修改时间：10:48:50" itemprop="dateCreated datePublished" datetime="2022-04-06T00:00:00+08:00">2022-04-06</time>
     </span>
 
   
@@ -384,57 +384,14 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
           <p>笔者在学习这一部分的过程中，一开始完全看不懂这链表的宏是在干啥，经过自己坐大牢+问朋友，才搞清楚，记录一下。</p>
 <p>如有理解错误，感谢指正。</p>
-<h1 id="链表的节点是啥">链表的节点是啥</h1>
-<p>一开始看这个看不懂，就想着看看这个链表宏在代码里面是怎么使用的，我觉得以这个为例比较好理解。</p>
-<p>这是Page结构体（在pmap.h）中，也就是链表的节点。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Page</span> &#123;</span></span><br><span class="line">	Page_LIST_entry_t pp_link;	</span><br><span class="line">	u_short pp_ref;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>这里面的<code>Page_LIST_entry_t</code>其实就是<code>LIST_ENTRY(Page)</code></p>
-<p>因为在pmap.h中把<code>LIST_ENTRY(Page)</code>
-typedef为了<code>Page_LIST_entry_t</code></p>
-<p>而<code>LIST_ENTRY(Page)</code>：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LIST_ENTRY(type)                                                	\</span></span><br><span class="line"><span class="meta">        struct &#123;                                                                \</span></span><br><span class="line"><span class="meta">                struct type *le_next;   <span class="comment">/* next element */</span>                      \</span></span><br><span class="line"><span class="meta">                struct type **le_prev;  <span class="comment">/* address of previous next element */</span>  \</span></span><br><span class="line"><span class="meta">        &#125;</span></span><br></pre></td></tr></table></figure>
-<p>就是一个结构体的定义，这个结构体中包含两个类型为type的指针，le_next是指向type的指针，指向链表的下一个节点；le_prev是指向指向type的指针的指针，指向<strong>上一个节点的le_next指针</strong>。</p>
-<blockquote>
-<p>这里我一开始非常不理解为什么le_next要是双重指针，其实重点在于，le_next指向的不是链表的前一个节点，而是前一个节点的le_next</p>
-<p>（在我的印象中链表的实现都是直接保存<strong>指向上一个节点的指针</strong>，但是我们这个实现中，链表的节点只是保存了指向上一个节点的le_next的指针，这样就可以通过当前节点修改上一个节点的le_next，也可以实现链表的功能（插入、删除等）</p>
-<p>但是我不理解这么做有什么好处，求大佬解答（？？？）</p>
-</blockquote>
-<p>因此Page实际上展开后长这样：</p>
-<figure>
-<img src="e7884c8b5185658c312bb672a6e5294.jpg"
-alt="e7884c8b5185658c312bb672a6e5294" />
-<figcaption
-aria-hidden="true">e7884c8b5185658c312bb672a6e5294</figcaption>
-</figure>
-<p>对应我们的宏是这样</p>
-<figure>
-<img src="6c4ec5d51e205963934ace59a1281e4.jpg"
-alt="6c4ec5d51e205963934ace59a1281e4" />
-<figcaption
-aria-hidden="true">6c4ec5d51e205963934ace59a1281e4</figcaption>
-</figure>
-<h1 id="链表是啥">链表是啥</h1>
-<p>以实验代码中的Page_list为例</p>
-<p>Page_list是包含了头结点的一个结构体：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LIST_HEAD(name, type)  <span class="comment">//LIST_HEAD(Page_list, Page);                                         	\</span></span></span><br><span class="line"><span class="comment"><span class="meta">        struct name &#123;                                                           \</span></span></span><br><span class="line"><span class="comment"><span class="meta">                struct type *lh_first;  /* first element */                     \</span></span></span><br><span class="line"><span class="comment"><span class="meta">        &#125;</span></span></span><br></pre></td></tr></table></figure>
-<p>这是一个结构体的定义，结构体名为name，里面有一个类型为type的指针</p>
-<p>在我们的项目中这个宏被用在</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LIST_HEAD(Page_list, Page); </span><br></pre></td></tr></table></figure>
-<p>相当于</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="class"><span class="keyword">struct</span> <span class="title">Page_list</span> &#123;</span>                                                           \</span><br><span class="line">         <span class="class"><span class="keyword">struct</span> <span class="title">Page</span> *<span class="title">lh_first</span>;</span>  <span class="comment">/* first element */</span>                     \</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="链表的insert_before">链表的INSERT_BEFORE</h1>
-<p>其实要是搞清楚链表结构体中的每个东西都是干嘛用的，理解这个就不难了。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LIST_INSERT_BEFORE(listelm, elm, field) do &#123;		                \</span></span><br><span class="line"><span class="meta">                (elm)-&gt;field.le_prev = (listelm)-&gt;field.le_prev;                \</span></span><br><span class="line"><span class="meta">                LIST_NEXT((elm), field) = (listelm);                            \</span></span><br><span class="line"><span class="meta">                *(listelm)-&gt;field.le_prev = (elm);                              \</span></span><br><span class="line"><span class="meta">                (listelm)-&gt;field.le_prev = &amp;LIST_NEXT((elm), field);            \</span></span><br><span class="line"><span class="meta">        &#125; while (0)</span></span><br></pre></td></tr></table></figure>
-<p>这里面的listelm，elm都是指向链表节点的指针</p>
-<p>四条语句分别对应下面图中的1,2,3,4</p>
-<figure>
-<img src="image-20220406100023694.png" alt="image-20220406100023694" />
-<figcaption aria-hidden="true">image-20220406100023694</figcaption>
-</figure>
-<p>比较难理解的是<code>(listelm)-&gt;field.le_prev =
-&amp;LIST_NEXT((elm), field);</code></p>
-<p>其实这就是把指向<strong>指向listelm的指针</strong>的指针赋值给了listelm的le_prev</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/04/06/%E5%AF%B9%E4%BA%8E%E9%93%BE%E8%A1%A8%E5%AE%8F%E7%9A%84%E7%90%86%E8%A7%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
