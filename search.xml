@@ -2409,9 +2409,10 @@ typedef为了<code>Page_LIST_entry_t</code></p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LIST_ENTRY(type)                                                	\</span></span><br><span class="line"><span class="meta">        struct &#123;                                                                \</span></span><br><span class="line"><span class="meta">                struct type *le_next;   <span class="comment">/* next element */</span>                      \</span></span><br><span class="line"><span class="meta">                struct type **le_prev;  <span class="comment">/* address of previous next element */</span>  \</span></span><br><span class="line"><span class="meta">        &#125;</span></span><br></pre></td></tr></table></figure>
 <p>就是一个结构体的定义，这个结构体中包含两个类型为type的指针，le_next是指向type的指针，指向链表的下一个节点；le_prev是指向指向type的指针的指针，指向<strong>上一个节点的le_next指针</strong>。</p>
 <blockquote>
-<p>这里我一开始非常不理解为什么le_next要是双重指针，其实重点在于，le_next指向的不是链表的前一个节点，而是前一个节点的le_next</p>
+<p>这里我一开始非常不理解为什么le_prev要是双重指针，其实重点在于，le_prev指向的不是链表的前一个节点，而是前一个节点的le_next</p>
 <p>（在我的印象中链表的实现都是直接保存<strong>指向上一个节点的指针</strong>，但是我们这个实现中，链表的节点只是保存了指向上一个节点的le_next的指针，这样就可以通过当前节点修改上一个节点的le_next，也可以实现链表的功能（插入、删除等）</p>
 <p>但是我不理解这么做有什么好处，求大佬解答（？？？）</p>
+<p>我觉得这个可能是为了<strong>保护</strong>。使用这种实现方法的话，后一个节点就只能修改前一个节点的le_next，不能修改前一个节点的le_prev或者别的什么东西，而如果直接把后一个节点的le_prev指向前一个节点的话，程序员就可以通过后一个节点获取前一个节点的一切信息，有可能篡改前一个节点和前前一个节点之间的关系，这是不安全的。</p>
 </blockquote>
 <p>因此Page实际上展开后长这样：</p>
 <figure>
