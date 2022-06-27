@@ -187,25 +187,6 @@
   </entry>
   
   <entry>
-    <title>Java中的断言(assert)</title>
-    <link href="http://banana889.github.io/2022/02/22/Java/assert_in_java/"/>
-    <id>http://banana889.github.io/2022/02/22/Java/assert_in_java/</id>
-    <published>2022-02-22T01:41:56.000Z</published>
-    <updated>2022-02-22T05:12:46.444Z</updated>
-    
-    <content type="html"><![CDATA[<p><code>assert</code>的语法以及用途</p><span id="more"></span><h1 id="含义">含义</h1><p>断言就是在某个地方做出一个确定的判断，如果这个判断是真的，则没有什么影响，如果判断是假的，就会引发异常。这帮助程序员更加了解自己在编程中做了些什么，从而避免不必要的错误。</p><p>断言是一种调试或者测试的方法。</p><h1 id="语法">语法</h1><ul><li>assert 条件;</li><li>assert 条件:表达式;</li></ul><p>这个条件就是你做出的判断，第二种语法的表达式是在条件不满足时会输出的信息。</p><p>当条件不满足的时候，会引发异常<code>java.lang.AssertionError</code>。</p><blockquote><p>例子</p><p>如果你想确定在某个地方int a&gt;0,只有这样才能保证后面的程序正常运行，你可以这样：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assert</span> a&gt;<span class="number">0</span>:<span class="string">&quot;a=&quot;</span>+a;</span><br></pre></td></tr></table></figure><p>那么当条件不满足的时候就会输出</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread &quot;main&quot; java.lang.AssertionError: a=-1</span><br><span class="line">        at cls.main(cls.java:11)</span><br></pre></td></tr></table></figure><p>可以看到，冒号后面的语句被输出了。冒号后面可以放置发生异常的时候想要知道的信息。</p></blockquote><h1 id="使用">使用</h1><p>注意，assert在java程序的运行中默认是不会被开启的，如果使用命令行运行，需要在运行时加上<code>-ea</code>（EnableAssertation)选项</p><blockquote><p>-da选项是禁用断言，目前我也不知道有什么用，可能是针对文件比较多的时候，启用某个包的断言但是不想启用这个包中某个文件的断言</p></blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javac Main.java</span><br><span class="line">java -ea Main.java</span><br></pre></td></tr></table></figure><p>如果在IDEA中，可以这样设置：</p><p>Run --- EditConfigurations --- 左边选择要启用断言的文件 --- ModifyOptions --- Add VM Options</p><p>在VMoptions框里面写上<code>-ea</code>，运行，成功。</p><p><img src="assert_in_java/image-20220222124654155.png" alt="image-20220222124654155" style="zoom:67%;" /></p><p><img src="assert_in_java/image-20220222124831604-16455053139741.png" alt="image-20220222124831604-16455053139741" style="zoom: 50%;" /></p><h1 id="用途">用途</h1><p>对于我这种抬手bug落手bug的人来说，这个断言看起来挺好用的，可以在调试代码的时候验证自己的判断。</p><p>断言相比于其他测试方法（比如输出中间值）的优点（我觉得）在于他只有在加上<code>-ea</code>选项的时候才会生效，这就保证了不会因为粗心忘记删去调试信息而被评测机误判，也不会让你的程序因为加了太多调试语句而变得乱七八糟。同时，引发异常的方式比正常输出更加直观，而且更有利于找准出错的位置和原因。</p><p>比如</p><ul><li>可以用在if-else语句的else块里面</li><li>...更多用法，有待探索</li></ul><hr /><p>[参考资料]</p><p>[1] Java核心技术（卷1）,第11章</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;code&gt;assert&lt;/code&gt;的语法以及用途&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Java" scheme="http://banana889.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
     <title>编程语言入门基本方法总结</title>
     <link href="http://banana889.github.io/2022/02/20/%E6%9C%AA%E5%88%86%E7%B1%BB/2022-2-21-%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8/"/>
     <id>http://banana889.github.io/2022/02/20/%E6%9C%AA%E5%88%86%E7%B1%BB/2022-2-21-%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8/</id>
@@ -332,23 +313,6 @@
     
     
     <category term="MMA" scheme="http://banana889.github.io/tags/MMA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>看雪</title>
-    <link href="http://banana889.github.io/2022/01/22/%E9%97%B2%E8%AF%9D/2022-1-22-snow/"/>
-    <id>http://banana889.github.io/2022/01/22/%E9%97%B2%E8%AF%9D/2022-1-22-snow/</id>
-    <published>2022-01-22T02:25:00.000Z</published>
-    <updated>2022-03-02T04:54:34.776Z</updated>
-    
-    <content type="html"><![CDATA[<p>想来有些矫情，就不发朋友圈了（doge</p><span id="more"></span><p><img src="29774825.png" /></p><p>雪不在乎落下后会被行人践踏，被柏油路染黑，被粗盐降低熔点......只是落</p><blockquote><p>林妹妹看到这种场景大概也会伤心一场吧</p></blockquote><p>无所谓落在哪里，想来也不会因为落到马路上难过</p><p>雪是不会思考的，只需要受力学的支配，随便到哪里，还挺幸福</p><hr /><p>木心有句话：</p><p><code>我认为在细节上大自然看起来是不徒劳——大自然整个徒劳。</code></p><p>是徒劳，不过结果不重要，过程才重要</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;想来有些矫情，就不发朋友圈了（doge&lt;/p&gt;</summary>
-    
-    
-    
     
   </entry>
   
