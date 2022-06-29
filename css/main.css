@@ -18,10 +18,10 @@
   --btn-default-hover-bg: #6a3906;
   --btn-default-hover-color: #fff;
   --btn-default-hover-border-color: #6a3906;
-  --highlight-background: #f0f0f0;
-  --highlight-foreground: #444;
-  --highlight-gutter-background: #dedede;
-  --highlight-gutter-foreground: #555;
+  --highlight-background: #f4f3ec;
+  --highlight-foreground: #5f5e4e;
+  --highlight-gutter-background: #e5e4dc;
+  --highlight-gutter-foreground: #6d6c5d;
   color-scheme: light;
 }
 html {
@@ -362,97 +362,82 @@ td {
   top: -5px;
   transform: rotate(-45deg);
 }
-/*
+/* Base16 Atelier Estuary Light - Theme */
+/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/estuary) */
+/* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
 
-Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
+/* Atelier-Estuary Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #6c6b5a;
+}
 
-*/
+/* Atelier-Estuary Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-name,
+.hljs-regexp,
+.hljs-link,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #ba6236;
+}
+
+/* Atelier-Estuary Orange */
+.hljs-number,
+.hljs-meta,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params {
+  color: #ae7313;
+}
+
+/* Atelier-Estuary Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet {
+  color: #7d9726;
+}
+
+/* Atelier-Estuary Blue */
+.hljs-title,
+.hljs-section {
+  color: #36a166;
+}
+
+/* Atelier-Estuary Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #5f9182;
+}
+
+.hljs-deletion,
+.hljs-addition {
+  color: #22221b;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-deletion {
+  background-color: #ba6236;
+}
+
+.hljs-addition {
+  background-color: #7d9726;
+}
 
 .hljs {
   display: block;
   overflow-x: auto;
+  background: #f4f3ec;
+  color: #5f5e4e;
   padding: 0.5em;
-  background: #F0F0F0;
 }
-
-
-/* Base color: saturation 0; */
-
-.hljs,
-.hljs-subst {
-  color: #444;
-}
-
-.hljs-comment {
-  color: #888888;
-}
-
-.hljs-keyword,
-.hljs-attribute,
-.hljs-selector-tag,
-.hljs-meta-keyword,
-.hljs-doctag,
-.hljs-name {
-  font-weight: bold;
-}
-
-
-/* User color: hue: 0 */
-
-.hljs-type,
-.hljs-string,
-.hljs-number,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-quote,
-.hljs-template-tag,
-.hljs-deletion {
-  color: #880000;
-}
-
-.hljs-title,
-.hljs-section {
-  color: #880000;
-  font-weight: bold;
-}
-
-.hljs-regexp,
-.hljs-symbol,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-link,
-.hljs-selector-attr,
-.hljs-selector-pseudo {
-  color: #BC6060;
-}
-
-
-/* Language color: hue: 90; */
-
-.hljs-literal {
-  color: #78A960;
-}
-
-.hljs-built_in,
-.hljs-bullet,
-.hljs-code,
-.hljs-addition {
-  color: #397300;
-}
-
-
-/* Meta color: hue: 200 */
-
-.hljs-meta {
-  color: #1f7199;
-}
-
-.hljs-meta-string {
-  color: #4d99bf;
-}
-
-
-/* Misc effects */
 
 .hljs-emphasis {
   font-style: italic;
@@ -462,6 +447,42 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
   font-weight: bold;
 }
 
+.highlight:hover .copy-btn,
+pre:hover .copy-btn {
+  opacity: 1;
+}
+.copy-btn {
+  color: #333;
+  cursor: pointer;
+  line-height: 1.6;
+  opacity: 0;
+  padding: 2px 6px;
+  position: absolute;
+  transition: opacity 0.1s ease-in-out;
+  color: var(--highlight-foreground);
+  font-size: 14px;
+  right: 0;
+  top: 2px;
+}
+figure.highlight {
+  border-radius: 5px;
+  box-shadow: 0 10px 30px 0 rgba(0,0,0,0.4);
+  padding-top: 30px;
+}
+figure.highlight .table-container {
+  border-radius: 0 0 5px 5px;
+}
+figure.highlight::before {
+  background: #fc625d;
+  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+  left: 12px;
+  margin-top: -20px;
+  position: absolute;
+  border-radius: 50%;
+  content: ' ';
+  height: 12px;
+  width: 12px;
+}
 code,
 kbd,
 figure.highlight,
