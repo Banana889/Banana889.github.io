@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://banana889.github.io/2022/09/13/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/image-20220913165120955.png">
 <meta property="og:image" content="http://banana889.github.io/2022/09/13/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/image-20220913173659804.png">
 <meta property="article:published_time" content="2022-09-13T02:52:18.000Z">
-<meta property="article:modified_time" content="2022-09-13T13:05:47.183Z">
+<meta property="article:modified_time" content="2022-09-13T13:20:44.320Z">
 <meta property="article:author" content="CNX">
 <meta property="article:tag" content="量子计算">
 <meta name="twitter:card" content="summary">
@@ -254,7 +254,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-09-13 10:52:18 / 修改时间：21:05:47" itemprop="dateCreated datePublished" datetime="2022-09-13T10:52:18+08:00">2022-09-13</time>
+      <time title="创建时间：2022-09-13 10:52:18 / 修改时间：21:20:44" itemprop="dateCreated datePublished" datetime="2022-09-13T10:52:18+08:00">2022-09-13</time>
     </span>
 
   
@@ -292,7 +292,7 @@
         <p>这是一篇没什么技术含量的概述（应该不会有太多公式）。之前不了解quantum
 computation的朋友可放心食用。</p>
 <span id="more"></span>
-<p>狭义的量子计算只是指的是用这种技术进行计算并得到想要的结果，这种意义下，量子计算代替的是传统计算机中由电路、逻辑门等组成东西。而量子技术能做到的不止计算，还有量子信息传输（例如超密编码、量子隐形传态等等，也许这些属于量子信息，恕我了解的不够多）。</p>
+<p>狭义的量子计算只是指的是用这种技术进行计算并得到想要的结果，这种意义下，量子计算代替的是传统计算机中由电路、逻辑门等组成的东西。而量子技术能做到的不止计算，还有量子信息传输（例如超密编码、量子隐形传态等等，也许这些属于量子信息，恕我了解的不够多）。</p>
 <p>本文要讨论的是狭义的量子计算。</p>
 <h1 id="什么是计算">什么是计算</h1>
 <p>计算机科学发展到如今，感觉已经很难用一个定义去涵盖所有那些奇形怪状的计算模型了。例如：</p>
@@ -314,14 +314,16 @@ computation的朋友可放心食用。</p>
 <li>制备初态</li>
 <li>测量得到输出结果</li>
 </ul>
-<p>我们把用来表示量子信息的东西抽象为量子比特，作用在量子比特(qbit)上导致状态改变的东西我们抽象为酉变换，一个或多个qbit的量子态可以表示为某个基上的一个向量，测量就是由量子态到经典的过程。由此一来，可以用向量表示状态、矩阵的乘积表示门，可以通过电路图来表示量子电路，例如：
-<span class="math display">\[
+<p>我们把用来表示量子信息的东西抽象为量子比特，作用在量子比特(qbit)上导致状态改变的东西我们抽象为酉变换，一个或多个qbit的量子态可以表示为某个基上的一个向量，测量就是由量子态到经典的过程。由此一来，可以用向量表示状态、矩阵的乘积表示门，可以通过电路图来表示量子电路，例如：</p>
+<p><span class="math display">\[
 X = \left[
 \begin{matrix}
 0&amp;1\\1&amp;0
 \end{matrix}
 \right]
-\]</span> 表示非门，因为： <span class="math display">\[
+\]</span></p>
+<p>表示非门，因为：</p>
+<p><span class="math display">\[
 X|0\rangle =\left[
 \begin{matrix}
 0&amp;1\\1&amp;0
@@ -335,26 +337,28 @@ X|0\rangle =\left[
 0\\1
 \end{matrix}
 \right] = |1\rangle
-\]</span>
-当然也可以由量子门构成与门、或门等，但是这是是证明了量子计算的可行性，量子计算的强大之处不在于此。</p>
+\]</span></p>
+<p>当然也可以由量子门构成与门、或门等，但是这是是证明了量子计算的可行性，量子计算的强大之处不在于此。</p>
 <p>总而言之，<strong>量子计算的过程就是由量子比特和作用在qbit上的酉矩阵组成的，最终我们由测量得到计算结果</strong>。</p>
 <h1 id="量子计算的优越性">量子计算的优越性</h1>
 <p>这里想举个例子来说明。</p>
 <h2 id="qft量子傅里叶变换及其应用">QFT（量子傅里叶变换）及其应用</h2>
 <p>（以下内容来自参考文献1 chapter5）</p>
-<p>傅里叶变换的公式为 <span class="math display">\[
+<p>傅里叶变换的公式为</p>
+<p><span class="math display">\[
 |j\rangle \rightarrow \frac 1 {\sqrt N} \sum_{k = 1}^{N-1} e^{2\pi i j k
 /N} |k\rangle
-\]</span> 可以等价转化为（<span class="math inline">\(j_1,...j_n\in
-\{0,1\}\)</span> 是 j 的二进制表示</p>
+\]</span></p>
+<p>可以等价转化为（<span class="math inline">\(j_1,...j_n\in
+\{0,1\}\)</span>是 j 的二进制表示</p>
 <figure>
 <img src="image-20220913202809820.png" alt="image-20220913202809820" />
 <figcaption aria-hidden="true">image-20220913202809820</figcaption>
 </figure>
-<p>如果我们要对于 <span class="math inline">\(0,..., 2^n-1\)</span>
-的每个数字计算它的变换结果，经典算法的复杂度为 <span
-class="math inline">\(O(n2^n)\)</span>，而如果使用量子算法，我们可以先制备一个叠加态，一次计算这
-<span class="math inline">\(2^n\)</span> 个态的结果，复杂度为 <span
+<p>如果我们要对于<span class="math inline">\(0,...,
+2^n-1\)</span>的每个数字计算它的变换结果，经典算法的复杂度为<span
+class="math inline">\(O(n2^n)\)</span>，而如果使用量子算法，我们可以先制备一个叠加态，一次计算这<span
+class="math inline">\(2^n\)</span>个态的结果，复杂度为<span
 class="math inline">\(O(n^2)\)</span>。</p>
 <figure>
 <img src="image-20220913203846668.png" alt="image-20220913203846668" />
@@ -362,8 +366,8 @@ class="math inline">\(O(n^2)\)</span>。</p>
 </figure>
 <p>一般科普文章可能就写到这里了，但是光是计算出来还不行，测量也是量子算法中要考虑的一个重要问题。我们计算出来了，怎么测量呢？因为随机性，我们其实不能直接测量得到我们想要的结果，因此，单独一个量子傅里叶变换是没有用的。</p>
 <p>那么这个算法有什么用呢？</p>
-<p>一个事实是：大部分量子电路都是可逆的，所以，逆傅里叶变换也是可以实现的，我们可以利用逆傅里叶变换做什么呢？可以把蕴含在相位中的数字（上图右边的
-<span class="math inline">\(e^{2\pi i
+<p>一个事实是：大部分量子电路都是可逆的，所以，逆傅里叶变换也是可以实现的，我们可以利用逆傅里叶变换做什么呢？可以把蕴含在相位中的数字（上图右边的<span
+class="math inline">\(e^{2\pi i
 0.j_1...}\)</span>这类数字）转换成用二进制表示的形式（<span
 class="math inline">\(|j_1j_1...j_n\rangle\)</span>），然后就可以测量了！</p>
 <p>利用这个算法，我们可以求一个酉算子的特征值，可以求群中某个元素的阶，可以求周期函数的周期，可以求一个大整数的因子......</p>
