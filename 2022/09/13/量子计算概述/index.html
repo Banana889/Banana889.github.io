@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#5e3906">
+<meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#5e3906">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"banana889.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null,"activeClass":"livere"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="这是一篇没什么技术含量的概述（应该不会有太多公式）。之前不了解quantum computation的朋友可放心食用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="量子计算概述">
+<meta property="og:url" content="http://banana889.github.io/2022/09/13/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/index.html">
+<meta property="og:site_name" content="Banana的博客">
+<meta property="og:description" content="这是一篇没什么技术含量的概述（应该不会有太多公式）。之前不了解quantum computation的朋友可放心食用。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://banana889.github.io/2022/09/13/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/image-20220913202809820.png">
+<meta property="og:image" content="http://banana889.github.io/2022/09/13/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/image-20220913203846668.png">
+<meta property="og:image" content="http://banana889.github.io/2022/09/13/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/image-20220913112359656.png">
+<meta property="og:image" content="http://banana889.github.io/2022/09/13/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/image-20220913165120955.png">
+<meta property="og:image" content="http://banana889.github.io/2022/09/13/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/image-20220913173659804.png">
+<meta property="article:published_time" content="2022-09-13T02:52:18.000Z">
+<meta property="article:modified_time" content="2022-09-13T13:05:47.183Z">
+<meta property="article:author" content="CNX">
+<meta property="article:tag" content="量子计算">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://banana889.github.io/2022/09/13/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/image-20220913202809820.png">
+
+
+<link rel="canonical" href="http://banana889.github.io/2022/09/13/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://banana889.github.io/2022/09/13/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/","path":"2022/09/13/量子计算概述/","title":"量子计算概述"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>量子计算概述 | Banana的博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Banana的博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Banana的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">好久不见</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">21</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间轴<span class="badge">21</span></a></li>
+        <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
+        <li class="menu-item menu-item-github"><a href="https://github.com/Banana889" rel="noopener" target="_blank">GitHub</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%A1%E7%AE%97"><span class="nav-number">1.</span> <span class="nav-text">什么是计算</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84"><span class="nav-number">2.</span> <span class="nav-text">量子计算是如何实现的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E7%9A%84%E4%BC%98%E8%B6%8A%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">量子计算的优越性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#qft%E9%87%8F%E5%AD%90%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8"><span class="nav-number">3.1.</span> <span class="nav-text">QFT（量子傅里叶变换）及其应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.2.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">物理实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%94%AF%E6%8C%81%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.</span> <span class="nav-text">支持量子计算的操作系统</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CNX"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">CNX</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:3131902990@qq.com" title="E-Mail → mailto:3131902990@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://banana889.github.io/2022/09/13/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="CNX">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Banana的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          量子计算概述
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-09-13 10:52:18 / 修改时间：21:05:47" itemprop="dateCreated datePublished" datetime="2022-09-13T10:52:18+08:00">2022-09-13</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>这是一篇没什么技术含量的概述（应该不会有太多公式）。之前不了解quantum
+computation的朋友可放心食用。</p>
+<span id="more"></span>
+<p>狭义的量子计算只是指的是用这种技术进行计算并得到想要的结果，这种意义下，量子计算代替的是传统计算机中由电路、逻辑门等组成东西。而量子技术能做到的不止计算，还有量子信息传输（例如超密编码、量子隐形传态等等，也许这些属于量子信息，恕我了解的不够多）。</p>
+<p>本文要讨论的是狭义的量子计算。</p>
+<h1 id="什么是计算">什么是计算</h1>
+<p>计算机科学发展到如今，感觉已经很难用一个定义去涵盖所有那些奇形怪状的计算模型了。例如：</p>
+<ul>
+<li>QCQI(参考文献1)
+3.3节举了一个用DNA复制进行“计算”，解决寻找哈密顿圈问题的例子。</li>
+<li>量子计算机</li>
+<li>各种异构处理器</li>
+</ul>
+<p>我们可以把计算抽象为图灵机，但是我总觉得这太抽象，不能概括各种具体计算模型的特征，感觉上和别的计算模型毫无关系；也可以把计算具体为我们计组里面学的、由电路搭成的计算机，但是这又没能包含太多其他计算模型。</p>
+<p>我宁愿把计算机定义为<strong>一种人造的、能够获取输入并且按照人的意愿进行一系列作用并给出输出的机器。</strong></p>
+<p>计算机科学传统上不受物理定律的限制，但是计算机的实现取决于物理定律，物理定律决定了计算机科学家们能够使用哪些东西。计算机科学理论可以脱离物理而存在，而其应用会受到物理定律的限制。</p>
+<p>我们要讲的<strong>量子计算机</strong>就是一种不同于传统计算模型的模型。</p>
+<h1 id="量子计算是如何实现的">量子计算是如何实现的</h1>
+<p>量子计算的基本要求有</p>
+<ul>
+<li>稳定的表示量子信息</li>
+<li>完成通用的酉变换</li>
+<li>制备初态</li>
+<li>测量得到输出结果</li>
+</ul>
+<p>我们把用来表示量子信息的东西抽象为量子比特，作用在量子比特(qbit)上导致状态改变的东西我们抽象为酉变换，一个或多个qbit的量子态可以表示为某个基上的一个向量，测量就是由量子态到经典的过程。由此一来，可以用向量表示状态、矩阵的乘积表示门，可以通过电路图来表示量子电路，例如：
+<span class="math display">\[
+X = \left[
+\begin{matrix}
+0&amp;1\\1&amp;0
+\end{matrix}
+\right]
+\]</span> 表示非门，因为： <span class="math display">\[
+X|0\rangle =\left[
+\begin{matrix}
+0&amp;1\\1&amp;0
+\end{matrix}
+\right] \left[
+\begin{matrix}
+1\\0
+\end{matrix}
+\right]=\left[
+\begin{matrix}
+0\\1
+\end{matrix}
+\right] = |1\rangle
+\]</span>
+当然也可以由量子门构成与门、或门等，但是这是是证明了量子计算的可行性，量子计算的强大之处不在于此。</p>
+<p>总而言之，<strong>量子计算的过程就是由量子比特和作用在qbit上的酉矩阵组成的，最终我们由测量得到计算结果</strong>。</p>
+<h1 id="量子计算的优越性">量子计算的优越性</h1>
+<p>这里想举个例子来说明。</p>
+<h2 id="qft量子傅里叶变换及其应用">QFT（量子傅里叶变换）及其应用</h2>
+<p>（以下内容来自参考文献1 chapter5）</p>
+<p>傅里叶变换的公式为 <span class="math display">\[
+|j\rangle \rightarrow \frac 1 {\sqrt N} \sum_{k = 1}^{N-1} e^{2\pi i j k
+/N} |k\rangle
+\]</span> 可以等价转化为（<span class="math inline">\(j_1,...j_n\in
+\{0,1\}\)</span> 是 j 的二进制表示</p>
+<figure>
+<img src="image-20220913202809820.png" alt="image-20220913202809820" />
+<figcaption aria-hidden="true">image-20220913202809820</figcaption>
+</figure>
+<p>如果我们要对于 <span class="math inline">\(0,..., 2^n-1\)</span>
+的每个数字计算它的变换结果，经典算法的复杂度为 <span
+class="math inline">\(O(n2^n)\)</span>，而如果使用量子算法，我们可以先制备一个叠加态，一次计算这
+<span class="math inline">\(2^n\)</span> 个态的结果，复杂度为 <span
+class="math inline">\(O(n^2)\)</span>。</p>
+<figure>
+<img src="image-20220913203846668.png" alt="image-20220913203846668" />
+<figcaption aria-hidden="true">image-20220913203846668</figcaption>
+</figure>
+<p>一般科普文章可能就写到这里了，但是光是计算出来还不行，测量也是量子算法中要考虑的一个重要问题。我们计算出来了，怎么测量呢？因为随机性，我们其实不能直接测量得到我们想要的结果，因此，单独一个量子傅里叶变换是没有用的。</p>
+<p>那么这个算法有什么用呢？</p>
+<p>一个事实是：大部分量子电路都是可逆的，所以，逆傅里叶变换也是可以实现的，我们可以利用逆傅里叶变换做什么呢？可以把蕴含在相位中的数字（上图右边的
+<span class="math inline">\(e^{2\pi i
+0.j_1...}\)</span>这类数字）转换成用二进制表示的形式（<span
+class="math inline">\(|j_1j_1...j_n\rangle\)</span>），然后就可以测量了！</p>
+<p>利用这个算法，我们可以求一个酉算子的特征值，可以求群中某个元素的阶，可以求周期函数的周期，可以求一个大整数的因子......</p>
+<blockquote>
+<p>更具体的描述请参考（写的比较简略，可能需要一些基础才能读懂？）：</p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/Banana889/QCQI-exercise/blob/master/5.md#chapter5-总结">QCQI-exercise/5.md
+at master · Banana889/QCQI-exercise (github.com)</a></p>
+</blockquote>
+<h2 id="总结">总结</h2>
+<p>量子傅里叶变换的应用体现了以下基本思想：</p>
+<center>
+叠加、纠缠、测量<br> 制造并行、计算、提取信息
+</center>
+<p>QFT是一个比较容易理解而且有名的算法，但是并不是所有的量子算法都是这样。例如Gover算法（量子搜索算法）就是通过<strong>逐次调整</strong>直到测量出我们想要的结果的概率变大。</p>
+<p>总的来说，量子算法就是<strong>利用量子态不同于经典的特征进行计算</strong>。我们想要利用的只是体现量子特性的这一小部分，其他部分的计算没有必要使用量子算法，比如因子分解中求出一个可能的因子后验证它是不是因子这个任务就完全可以交给经典计算机去完成。</p>
+<h1 id="物理实现">物理实现</h1>
+<p>以上的讨论都是抽象的，qbit到底是什么呢？酉算子到底是什么呢？</p>
+<p>这部分在参考文献1的第七章讨论了，但是我看不懂。</p>
+<p>量子计算机可以基于很多种物理实体实现，可以用原子能级、自旋、光子频率实现qbit，可以用激光、光学元件等东西来实现酉变换......</p>
+<p>这句话很有意思（人类对强大力量的原始渴望）：</p>
+<figure>
+<img src="image-20220913112359656.png" alt="image-20220913112359656" />
+<figcaption aria-hidden="true">image-20220913112359656</figcaption>
+</figure>
+<h1 id="支持量子计算的操作系统">支持量子计算的操作系统</h1>
+<p>这一节的标题不是“量子操作系统”而是“支持量子计算的操作系统”，是因为我觉得前者太具有误导性了。</p>
+<p>在了解之前我以为量子计算机可能是和经典计算机一样的，完全由量子“电路”组成的计算机，毕竟“量子计算机”这个名字起的太大了。但是按照我个人对于量子计算的理解，它其实更适合作为一个计算机的一个处理器，像类似于
+GPU 或者别的什么东西的一个加速器。</p>
+<p>经典计算机已经非常成熟，在普通的计算方面无论是速度还是可靠性都比量子计算机强很多（就像拿一个刚出生的婴儿和一个正值壮年的人相比），我们没有必要为了量子而量子，而是应该在量子计算适合的领域让它充分发挥作用。</p>
+<p>因此，量子操作系统的架构主要就是在经典的基础上加上了处理量子任务的部分，也就是下图中大紫色方框框起来的部分。</p>
+<figure>
+<img src="image-20220913165120955.png" alt="图源参考文献3" />
+<figcaption aria-hidden="true">图源参考文献3</figcaption>
+</figure>
+<p>下面这张图就更清楚了，只有紫色高亮部分才是由量子处理器做的事情，其他部分都是由经典做的，包括任务调度、资源管理、编译等。</p>
+<figure>
+<img src="image-20220913173659804.png" alt="图源参考文献3" />
+<figcaption aria-hidden="true">图源参考文献3</figcaption>
+</figure>
+<p>采用这种架构的另一个很重要的理由是我们<strong>现有的大多数量子算法都是
+量子-经典混合的</strong>，并且我感觉必须使用量子处理器才能做的只有其中的一小部分（但是却十分重要，并且是算法的关键）。比如因子分解算法中只有求阶的部分用到了量子计算的特性，大的框架是经典的，这给我的感觉是量子计算机是我们可以调用的一个具有某些特定能力的黑盒。</p>
+<p>量子操作系统相比于一般的操作系统新增的的这部分做的就是进行资源管理、调度任务、分配物理量子bit等这些工作，然后把编译好的程序发送给QPU去处理。上面说的这些都是由经典程序做的。</p>
+<p>想到这学期报的一门课是《智能计算体系结构》，是教我们做一个模拟神经网络的加速器（硬件）。人们为了提高某些特殊计算的速度，直接从硬件入手比改进软件可能是更为高效的一种手段。也许未来的计算机会加上更多异构处理器，而软件设计会面临
+如何尽最大可能利用这些硬件资源 的课题......</p>
+<blockquote>
+<p>上面这个图的“量子计算后端”部分还有一个叫做“量子虚拟计算系统”的东西，猜测是用经典计算机模拟量子计算机。</p>
+</blockquote>
+<hr />
+<p><strong>参考文献：</strong></p>
+<p>[1] Michael A. Nielsen, Isaac L. Chuang - Quantum Computation and
+Quantum Information</p>
+<p>目前主要学习了这本书的1,3,4-7章</p>
+<p>[2] <a
+target="_blank" rel="noopener" href="https://qrunes-tutorial.readthedocs.io/en/latest/chapters/chapter1.html">第1章
+Quick Start — QRunes_tutorial documentation
+(qrunes-tutorial.readthedocs.io)</a></p>
+<p>[3] 孔伟成,王俊超,韩永健,吴玉椿,张 昱,窦猛汉,方
+圆,郭国平.(2021).本源司南：高效利用量子资源的量子操作系统. 链接:<a
+target="_blank" rel="noopener" href="http://www.chinaxiv.org/abs/202105.00063">ChinaXiv.org
+中国科学院科技论文预发布平台</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>CNX
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://banana889.github.io/2022/09/13/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/" title="量子计算概述">http://banana889.github.io/2022/09/13/量子计算概述/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97/" rel="tag"># 量子计算</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/06/29/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E5%8E%9F%E5%81%87%E8%AE%BE%E5%92%8C%E5%A4%87%E6%8B%A9%E5%81%87%E8%AE%BE/" rel="prev" title="假设检验：什么是原假设和备择假设">
+                  <i class="fa fa-chevron-left"></i> 假设检验：什么是原假设和备择假设
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC81NTQwNy8zMTg3NA=="></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CNX</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">87k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">2:39</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@8.13.8/dist/mermaid.min.js","integrity":"sha256-QmSAc2kIaUjleIJ46X7qPW2zrpCbXlMz3YIGgWpQ1Jo="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":false,"github_id":"Banana889","repo":"Banana889.github.io","client_id":"2dbd1c96b10b8c1f2ab1","client_secret":"78ff93ae010eeeed4d11ec2f1261838e7a2f3abe","admin_user":"Banana889","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"3be7aa98d992907175cbd79c194399f2"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="/js/third-party/comments/livere.js"></script>
+
+  
+</body>
+</html>
