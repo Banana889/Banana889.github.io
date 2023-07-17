@@ -172,6 +172,9 @@ template {
 [hidden] {
   display: none;
 }
+.trc_rbox_container {
+  display: none !important;
+}
 ::selection {
   background: #6a3906;
   color: #eee;

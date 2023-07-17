@@ -16,4 +16,9 @@ document.addEventListener('page:loaded', () => {
       }
     });
   });
+  // 一种屏蔽广告的方法，但是要不断轮询，效果不好
+  // setInterval(function () {
+  //   var box = document.querySelector(".trc_rbox_container");
+  //   if(box) box.outerHTML = "";
+  // }, 2000);
 });
