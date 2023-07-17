@@ -173,7 +173,7 @@ template {
   display: none;
 }
 .trc_rbox_container {
-  display: none !important;
+  display: none;
 }
 ::selection {
   background: #6a3906;
