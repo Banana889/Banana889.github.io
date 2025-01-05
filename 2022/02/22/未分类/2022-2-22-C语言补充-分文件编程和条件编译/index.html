@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#5e3906">
+<meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#5e3906">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=serif:300,300italic,400,400italic,700,700italic%7CZCOOL+KuaiLe:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"banana889.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null,"activeClass":"livere"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content=":D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言补充-分文件编程和条件编译">
+<meta property="og:url" content="http://banana889.github.io/2022/02/22/%E6%9C%AA%E5%88%86%E7%B1%BB/2022-2-22-C%E8%AF%AD%E8%A8%80%E8%A1%A5%E5%85%85-%E5%88%86%E6%96%87%E4%BB%B6%E7%BC%96%E7%A8%8B%E5%92%8C%E6%9D%A1%E4%BB%B6%E7%BC%96%E8%AF%91/index.html">
+<meta property="og:site_name" content="Banana的博客">
+<meta property="og:description" content=":D">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-22T02:39:00.000Z">
+<meta property="article:modified_time" content="2022-03-16T04:15:49.964Z">
+<meta property="article:author" content="CNX">
+<meta property="article:tag" content="C">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://banana889.github.io/2022/02/22/%E6%9C%AA%E5%88%86%E7%B1%BB/2022-2-22-C%E8%AF%AD%E8%A8%80%E8%A1%A5%E5%85%85-%E5%88%86%E6%96%87%E4%BB%B6%E7%BC%96%E7%A8%8B%E5%92%8C%E6%9D%A1%E4%BB%B6%E7%BC%96%E8%AF%91/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://banana889.github.io/2022/02/22/%E6%9C%AA%E5%88%86%E7%B1%BB/2022-2-22-C%E8%AF%AD%E8%A8%80%E8%A1%A5%E5%85%85-%E5%88%86%E6%96%87%E4%BB%B6%E7%BC%96%E7%A8%8B%E5%92%8C%E6%9D%A1%E4%BB%B6%E7%BC%96%E8%AF%91/","path":"2022/02/22/未分类/2022-2-22-C语言补充-分文件编程和条件编译/","title":"C语言补充-分文件编程和条件编译"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>C语言补充-分文件编程和条件编译 | Banana的博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Banana的博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Banana的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">分享有趣的知识</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">21</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">9</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间轴<span class="badge">26</span></a></li>
+        <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
+        <li class="menu-item menu-item-github"><a href="https://github.com/Banana889" rel="noopener" target="_blank">GitHub</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#c%E8%AF%AD%E8%A8%80%E7%9A%84%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">C语言的编译过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gcc%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">gcc基本用法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E6%96%87%E4%BB%B6%E7%BC%96%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">分文件编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8gcc%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.1.</span> <span class="nav-text">使用gcc实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%84%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4"><span class="nav-number">4.</span> <span class="nav-text">预处理命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%94%A8%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="nav-number">4.1.</span> <span class="nav-text">实用的例子</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CNX"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">CNX</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:3131902990@qq.com" title="E-Mail → mailto:3131902990@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://banana889.github.io/2022/02/22/%E6%9C%AA%E5%88%86%E7%B1%BB/2022-2-22-C%E8%AF%AD%E8%A8%80%E8%A1%A5%E5%85%85-%E5%88%86%E6%96%87%E4%BB%B6%E7%BC%96%E7%A8%8B%E5%92%8C%E6%9D%A1%E4%BB%B6%E7%BC%96%E8%AF%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="CNX">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Banana的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C语言补充-分文件编程和条件编译
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-22 10:39:00" itemprop="dateCreated datePublished" datetime="2022-02-22T10:39:00+08:00">2022-02-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-03-16 12:15:49" itemprop="dateModified" datetime="2022-03-16T12:15:49+08:00">2022-03-16</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>:D</p>
+<span id="more"></span>
+<h1 id="c语言的编译过程">C语言的编译过程</h1>
+<p>从.c文件得到.exe文件大体上分为以下三个步骤：</p>
+<ol type="1">
+<li>预处理</li>
+<li>编译</li>
+<li>链接</li>
+</ol>
+<hr />
+<p><strong>预处理</strong>是指进行一些复制粘贴操作，比如<code>#include
+"..."</code>的文件复制粘贴，还有宏的展开</p>
+<p><strong>编译</strong>是指把预处理得到的暂时的.c文件编译为二进制文件，编译之后生成<code>.o</code>文件</p>
+<p><strong>链接</strong>是指把多个编译得到的源文件和系统组件（我也不知道是什么）全都打包起来，形成可执行文件</p>
+<h1 id="gcc基本用法">gcc基本用法</h1>
+<p>gcc是一个编译器+链接器（但是我们通常称它为编译器</p>
+<p>命令<code>gcc --help</code>为显示帮助，可以快速查询各选项的功能</p>
+<p>命令格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc [选项] [文件名]</span><br></pre></td></tr></table></figure>
+<p>下面是gcc常用的选项</p>
+<ul>
+<li><p>-o</p>
+<p><code>gcc test.c -o
+test</code>设置输出的文件为<code>test.exe</code>(如果不设置，默认a.exe)</p></li>
+<li><p>-c</p>
+<p>仅编译，不链接</p>
+<p>例如<code>gcc -c test.c</code> 输出test.o文件</p></li>
+<li><p>-S</p>
+<p><code>gcc -S test.c</code></p>
+<p>汇编</p></li>
+<li><p>-E</p>
+<p>预处理</p>
+<p>直接<code>gcc -E
+test.c</code>似乎会把结果输出到终端，要输出到文件应该用<code>gcc -E
+test.c -o test.i</code></p></li>
+<li><p>-I</p>
+<p>指定头文件地址（如果头文件不在当前文件夹里面就需要用这个</p></li>
+<li><p>-O1 -O2 -O3</p>
+<p>编译优化</p></li>
+</ul>
+<h1 id="分文件编程">分文件编程</h1>
+<h2 id="使用gcc实现">使用gcc实现</h2>
+<p>有一个主文件，包含 main函数</p>
+<p>如果要将其它函数的实现写在其他文件中，需要一个头文件<code>function.h</code>头文件里面写函数的声明，和头文件这个名字相同的<code>.c</code>文件（function.c）里面写函数的实现。</p>
+<p>编译有两种方法</p>
+<ul>
+<li><p>直接一次性编译全部文件生成可执行文件</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc [所有.c文件]</span><br></pre></td></tr></table></figure></p>
+<p>选择.c文件的时候支持通配符，比如要编译这个文件夹里所有的<code>*.c</code>文件可以</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc *.c</span><br></pre></td></tr></table></figure></p></li>
+<li><p>先编译单个文件再链接</p>
+<p>这样做的好处是当修改了多个文件中的一个时，其他文件不必重新编译，适用于文件较多的情况。</p></li>
+</ul>
+<h1 id="预处理命令">预处理命令</h1>
+<p>以下是一些常用的预处理命令，用来控制哪些代码参加编译，哪些不参加</p>
+<ul>
+<li><p>#define</p></li>
+<li><p>#undef 取消定义，因此这个宏的作用域在#define和#undef之间</p></li>
+<li><p>#ifdef</p></li>
+<li><p>#ifndef if not define</p></li>
+<li><p>#if</p></li>
+<li><p>#elif</p></li>
+<li><p>#else</p></li>
+<li><p>#endif</p></li>
+<li><p>defined</p>
+<p>用法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#if defined(关键字)</span><br></pre></td></tr></table></figure>
+<p>这么看似乎和#ifdef没啥区别，但是这个可以用来判断多个条件（用&amp;&amp;，||连接），并且可以用在#elif
+后面</p></li>
+</ul>
+<hr />
+<p>if-elseif-else-endif:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> (or #<span class="meta-keyword">if</span> or #<span class="meta-keyword">ifndef</span>) identity</span></span><br><span class="line">	code1</span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span></span></span><br><span class="line">    code2</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    code3</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>       </span></span><br></pre></td></tr></table></figure>
+<p><code>#ifndef</code>用法类似</p>
+<h2 id="实用的例子">实用的例子</h2>
+<p>目前都是写一些小代码，对我来说实用一些的就只有这个了吧：</p>
+<p>写代码调试的时候，如果要输出中间结果经常会把代码改的乱七八糟，提交的时候删起来比较麻烦，但是如果把输出中间结果的代码写到条件编译里面，例如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DEBUG</span></span><br><span class="line"><span class="comment">//option</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>而在调试的时候编译加上选项<code>-DDEBUG</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -DDEBUG test.c</span><br></pre></td></tr></table></figure>
+<p>就相当于在代码里面定义了<code>DEBUG</code>（上面的"DEBUG"可以换成任何单词）</p>
+<hr />
+<p>[参考资料]</p>
+<p>[1] <a
+target="_blank" rel="noopener" href="https://www.cnblogs.com/laojie4321/archive/2012/03/30/2425015.html">C语言中.h和.c文件解析</a></p>
+<p>[2] <a target="_blank" rel="noopener" href="https://www.cnblogs.com/ibyte/p/5828445.html">GCC
+编译命令</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>CNX
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://banana889.github.io/2022/02/22/%E6%9C%AA%E5%88%86%E7%B1%BB/2022-2-22-C%E8%AF%AD%E8%A8%80%E8%A1%A5%E5%85%85-%E5%88%86%E6%96%87%E4%BB%B6%E7%BC%96%E7%A8%8B%E5%92%8C%E6%9D%A1%E4%BB%B6%E7%BC%96%E8%AF%91/" title="C语言补充-分文件编程和条件编译">http://banana889.github.io/2022/02/22/未分类/2022-2-22-C语言补充-分文件编程和条件编译/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"># C</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/02/19/Java/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="prev" title="正则表达式及其在Java和Python中的应用">
+                  <i class="fa fa-chevron-left"></i> 正则表达式及其在Java和Python中的应用
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/03/05/OO/2022-3-5-OO_HW1%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93%E2%80%94%E2%80%94%E4%B8%80%E7%A7%8D%E6%9E%81%E7%AE%80%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" rel="next" title="OO_HW1思路总结——一种极简的实现方法">
+                  OO_HW1思路总结——一种极简的实现方法 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC81NTQwNy8zMTg3NA=="></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CNX</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">108k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:17</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@8.13.8/dist/mermaid.min.js","integrity":"sha256-QmSAc2kIaUjleIJ46X7qPW2zrpCbXlMz3YIGgWpQ1Jo="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":false,"github_id":"Banana889","repo":"Banana889.github.io","client_id":"2dbd1c96b10b8c1f2ab1","client_secret":"78ff93ae010eeeed4d11ec2f1261838e7a2f3abe","admin_user":"Banana889","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"3be7aa98d992907175cbd79c194399f2"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="/js/third-party/comments/livere.js"></script>
+
+  
+</body>
+</html>

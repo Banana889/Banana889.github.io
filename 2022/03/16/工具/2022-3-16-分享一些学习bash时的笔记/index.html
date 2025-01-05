@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#5e3906">
+<meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#5e3906">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=serif:300,300italic,400,400italic,700,700italic%7CZCOOL+KuaiLe:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"banana889.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null,"activeClass":"livere"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="这不算是一份教程，只是浅记录一下我认为容易忘记的东西，并且分享一些好用的技巧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分享一些学习bash时的笔记">
+<meta property="og:url" content="http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Banana的博客">
+<meta property="og:description" content="这不算是一份教程，只是浅记录一下我认为容易忘记的东西，并且分享一些好用的技巧">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/image-20220309215112470.png">
+<meta property="og:image" content="http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/image-20220316194936171.png">
+<meta property="og:image" content="http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/image-20220316215847780.png">
+<meta property="og:image" content="http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/image-20220316215956009.png">
+<meta property="og:image" content="http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/image-20220316214449313.png">
+<meta property="og:image" content="http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/image-20220316215246924.png">
+<meta property="og:image" content="http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/image-20220316204946774.png">
+<meta property="og:image" content="http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/image-20220316203459056.png">
+<meta property="og:image" content="http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/image-20220316223948699.png">
+<meta property="og:image" content="http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/image-20220316230914936.png">
+<meta property="og:image" content="http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/image-20220316224114886.png">
+<meta property="og:image" content="http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/image-20220317095016988.png">
+<meta property="og:image" content="http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/image-20220317095238520.png">
+<meta property="article:published_time" content="2022-03-16T09:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-21T04:03:37.311Z">
+<meta property="article:author" content="CNX">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="备忘">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/image-20220309215112470.png">
+
+
+<link rel="canonical" href="http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/","path":"2022/03/16/工具/2022-3-16-分享一些学习bash时的笔记/","title":"分享一些学习bash时的笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>分享一些学习bash时的笔记 | Banana的博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Banana的博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Banana的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">分享有趣的知识</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">21</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">9</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间轴<span class="badge">26</span></a></li>
+        <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
+        <li class="menu-item menu-item-github"><a href="https://github.com/Banana889" rel="noopener" target="_blank">GitHub</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#rm%E6%8C%87%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">rm指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#diff"><span class="nav-number">2.</span> <span class="nav-text">diff</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E4%BA%8E%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E7%9A%84%E6%8C%87%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">用于文本处理的指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sed"><span class="nav-number">3.1.</span> <span class="nav-text">sed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk"><span class="nav-number">3.2.</span> <span class="nav-text">awk</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bashrc"><span class="nav-number">4.</span> <span class="nav-text">.bashrc</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8windows%E7%9A%84%E5%AD%90%E7%B3%BB%E7%BB%9F%E8%AE%BF%E9%97%AEc%E7%9B%98"><span class="nav-number">5.</span> <span class="nav-text">用windows的子系统访问c盘</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ln%E6%8C%87%E4%BB%A4"><span class="nav-number">5.1.</span> <span class="nav-text">ln指令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%A6%E4%B8%80%E4%BA%9B%E5%A5%87%E6%80%AA%E7%9A%84%E6%95%A3%E8%A3%85%E7%9F%A5%E8%AF%86"><span class="nav-number">6.</span> <span class="nav-text">另一些奇怪的散装知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E5%BF%98%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E"><span class="nav-number">7.</span> <span class="nav-text">指令忘了怎么办</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CNX"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">CNX</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:3131902990@qq.com" title="E-Mail → mailto:3131902990@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="CNX">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Banana的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          分享一些学习bash时的笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-16 17:00:00" itemprop="dateCreated datePublished" datetime="2022-03-16T17:00:00+08:00">2022-03-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-03-21 12:03:37" itemprop="dateModified" datetime="2022-03-21T12:03:37+08:00">2022-03-21</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>这不算是一份教程，只是浅记录一下我认为容易忘记的东西，并且分享一些好用的技巧</p>
+<span id="more"></span>
+<p>所以这篇博客写的没有什么逻辑...</p>
+<h1 id="rm指令">rm指令</h1>
+<p>选项：</p>
+<p><code>r</code>：递归</p>
+<p><code>f</code>：强制</p>
+<p><code>i</code>：每次删的时候问一下，例如：</p>
+<figure>
+<img src="image-20220309215112470.png" alt="image-20220309215112470" />
+<figcaption aria-hidden="true">image-20220309215112470</figcaption>
+</figure>
+<p>这个指令很<strong>危险</strong>，删了基本上没法恢复（我曾经就因为把mv打成rm而误删了一堆文件（好在不太重要）)</p>
+<p>我想，仿照windows的做法，在某个地方建一个rubbish文件夹，要删除的时候<code>mv
+&#123;&#123;filename&#125;&#125; rubbish</code></p>
+<p>为了方便操作，我改了一下<code>home/.bashrc</code>文件（后面讲），加了这么几行：</p>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">del</span></span> ()</span><br><span class="line">&#123;</span><br><span class="line">		d=`date +%Y-%m-%d`</span><br><span class="line">		<span class="keyword">if</span> [ ! -e <span class="string">&quot;/home/Legend/rubbish/<span class="variable">$d</span>&quot;</span> ] ;<span class="keyword">then</span></span><br><span class="line">			mkdir <span class="string">&quot;/home/Legend/rubbish/<span class="variable">$d</span>&quot;</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">        mv <span class="variable">$1</span> <span class="string">&quot;/home/Legend/rubbish/<span class="variable">$d</span>&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样，以后使用命令<code>del
+filename</code>就可以直接把这个文件移动到rubbish里面啦（并且是按日期分类的）</p>
+<p>例如（忽略2022那个文件夹，我乱建的）：</p>
+<figure>
+<img src="image-20220316194936171.png" alt="image-20220316194936171" />
+<figcaption aria-hidden="true">image-20220316194936171</figcaption>
+</figure>
+<p>（这个不太好用，本文后面还有一个更好用的版本）</p>
+<h1 id="diff">diff</h1>
+<p>diff 用于比较文件之间的差异</p>
+<p>-b 不检查空格</p>
+<p>-B 不检查空行</p>
+<p>-q 仅显示有无差异</p>
+<p>如果两个文件完全相同，什么都不会输出(什么都不输出就，怪怪的)</p>
+<figure>
+<img src="image-20220316215847780.png" alt="image-20220316215847780" />
+<figcaption aria-hidden="true">image-20220316215847780</figcaption>
+</figure>
+<p>如果两个文件不同，会以这种方式显示：</p>
+<figure>
+<img src="image-20220316215956009.png" alt="image-20220316215956009" />
+<figcaption aria-hidden="true">image-20220316215956009</figcaption>
+</figure>
+<p>（有点像git合并冲突时生成的东西）</p>
+<h1 id="用于文本处理的指令">用于文本处理的指令</h1>
+<h2 id="sed">sed</h2>
+<p><code>sed [选项] 命令 输入文本</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">选项(常用):</span><br><span class="line">        -n:使用安静模式。在一般sed的用法中，输入文本的所有内容都会被输出。加上-n参数后，则只有经过sed 处理的内容才会被显示。</span><br><span class="line">        -e: 进行多项编辑，即对输入行应用多条sed命令时使用。</span><br><span class="line">        -i:直接修改读取的档案内容，而不是输出到屏幕。使用时应小心。       </span><br><span class="line">命令(常用)：</span><br><span class="line">        a :新增，a后紧接着\，在当前行的后面添加一行文本</span><br><span class="line">        c :取代，c后紧接着\，用新的文本取代本行的文本</span><br><span class="line">        i :插入，i后紧接着\，在当前行的上面插入一行文本</span><br><span class="line">        d :删除，删除当前行的内容</span><br><span class="line">        p :显示，把选择的内容输出。通常 p 会与参数 sed -n 一起使用。</span><br><span class="line">        s :取代，格式为s/re/string，re表示正则表达式，string为字符串，功能为将正则表达式替换为字符串。</span><br></pre></td></tr></table></figure>
+<p>常用例子</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -n <span class="string">&quot;2,4P&quot;</span> filename <span class="comment">#输出文件的[2,4)行</span></span><br><span class="line">sed -n <span class="string">&quot;2p&quot;</span> filename <span class="comment">#输出文件的第二行</span></span><br></pre></td></tr></table></figure>
+<h2 id="awk">awk</h2>
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">awk -F: <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> txt</span><br><span class="line">awk <span class="string">&#x27;$1&gt;2 &#123;print $1,$3&#125;&#x27;</span> txt</span><br></pre></td></tr></table></figure>
+<h1 id="bashrc">.bashrc</h1>
+<p>.bashrc相当于一个配置文件，存在于每个用户的家目录中，每次用户登录或者开启一个新的进程（使用命令<code>bash</code>）都会载入.bashrc文件。</p>
+<p>.bashrc文件里面的内容其实就是bash脚本，我的理解是，每次开启一个新的进程的时候都会执行一遍这个脚本。</p>
+<p>所以你在这个脚本里面定义的全局变量都会变成你的用户变量，在这个脚本里面写的东西也都会运行一遍。</p>
+<blockquote>
+<p>怎么验证呢？</p>
+<p>我在.bashrc最开始写了一句</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Drink some water please.&quot;</span></span><br></pre></td></tr></table></figure>
+<p>然后每开启一个新的进程就会看到这个：</p>
+<figure>
+<img src="image-20220316214449313.png" alt="image-20220316214449313" />
+<figcaption aria-hidden="true">image-20220316214449313</figcaption>
+</figure>
+</blockquote>
+<p>修改.bashrc文件的主要用处有以下几点：</p>
+<ol type="1">
+<li><p>设置全局变量。如果你想配置PATH，就可以在这个文件里修改</p></li>
+<li><p>设置快捷指令。</p>
+<p>正如前面我自己定义的快捷指令<code>del</code>，.bashrc文件里面的函数可以被直接当做指令运行</p></li>
+<li><p>alias为已有指令设置别名，例如</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> ll=<span class="string">&#x27;ls -alF&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> la=<span class="string">&#x27;ls -A&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>设置提示符</p>
+<p>提示符就是这一堆东西：</p>
+<p><img src="image-20220316215246924.png" alt="image-20220316215246924" style="zoom:67%;" /></p>
+<p>（不过我觉得这个看起来没啥用，不过<a
+target="_blank" rel="noopener" href="https://www.maketecheasier.com/8-useful-and-interesting-bash-prompts/">这篇文章</a>挺花哨，先mark</p></li>
+</ol>
+<p>tips:在修改完.bashrc后新建一个进程或者重新打开终端才会起作用，或者直接
+<code>bash ~/.bashrc</code></p>
+<h1 id="用windows的子系统访问c盘">用windows的子系统访问c盘</h1>
+<p>如果你和我一样装了windows的ubuntu子系统，想用它访问c盘的文件应该怎么办呢？</p>
+<p>首先，你应该知道，可以在根目录下的<code>/mnt/</code>里面访问windows的c盘：</p>
+<figure>
+<img src="image-20220316204946774.png" alt="image-20220316204946774" />
+<figcaption aria-hidden="true">image-20220316204946774</figcaption>
+</figure>
+<blockquote>
+<p>据说这是一种叫“挂载”的技术，<code>/mnt/</code>文件夹也与这个有关，但是我现在还没有学到这，先走马观花</p>
+</blockquote>
+<p>但是这样很不方便。</p>
+<h2 id="ln指令">ln指令</h2>
+<p><del>不是对数函数</del></p>
+<p>这里要学习一个指令：<code>ln</code>用于<strong>建立链接</strong>，也就类似于Windows的<strong>快捷方式</strong></p>
+<p>用法：<code>ln [OPTION]... TARGET LINK_NAME</code></p>
+<p>例如</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s <span class="built_in">test</span> linkOfTest</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="image-20220316203459056.png" alt="image-20220316203459056" />
+<figcaption aria-hidden="true">image-20220316203459056</figcaption>
+</figure>
+<p>我们可以用ln指令在方便访问的地方建立一个c盘的链接，访问的时候直接<code>cd
+./linkname</code>，方方便便。</p>
+<p>当然也可以建立一些常用文件夹的链接。</p>
+<h1 id="另一些奇怪的散装知识">另一些奇怪的散装知识</h1>
+<ul>
+<li><p>"`"反引号表示先执行反引号里面的内容，然后把这个指令执行的结果传递到前面的指令（有点类似于管道？）</p>
+<p>一个奇怪的例子：</p>
+<figure>
+<img src="image-20220316223948699.png" alt="image-20220316223948699" />
+<figcaption aria-hidden="true">image-20220316223948699</figcaption>
+</figure>
+<p>怎么解释呢？</p>
+<figure>
+<img src="image-20220316230914936.png" alt="image-20220316230914936" />
+<figcaption aria-hidden="true">image-20220316230914936</figcaption>
+</figure></li>
+<li><p>在bash脚本中</p>
+<p>((a++))表示a自增1，例如这样：</p>
+<figure>
+<img src="image-20220316224114886.png" alt="image-20220316224114886" />
+<figcaption aria-hidden="true">image-20220316224114886</figcaption>
+</figure></li>
+<li><p>五颜六色的输出</p>
+<p>很炫酷，先mark一下</p>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42506599/article/details/105394827?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-4.pc_relevant_aa&amp;spm=1001.2101.3001.4242.3&amp;utm_relevant_index=7">CSDN博客_shell
+设置输出颜色</a></p></li>
+<li><p>其实前面加的<code>del</code>指令还可以改一下，让他支持一次性删除多个文件</p>
+<p>不说了，放代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">del</span></span> ()</span><br><span class="line">&#123;</span><br><span class="line">	y=`date +%Y`</span><br><span class="line">	m=`date +%Y/%m`</span><br><span class="line">	d=`date +%Y/%m/%d`</span><br><span class="line">	dir=<span class="string">&quot;/home/Legend/rubbish/&quot;</span></span><br><span class="line">	<span class="keyword">if</span> [ ! -e <span class="string">&quot;$dir<span class="variable">$y</span>&quot;</span> ]; <span class="keyword">then</span> mkdir <span class="string">&quot;$dir<span class="variable">$y</span>&quot;</span>; <span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">if</span> [ ! -e <span class="string">&quot;$dir<span class="variable">$m</span>&quot;</span> ]; <span class="keyword">then</span> mkdir <span class="string">&quot;$dir<span class="variable">$m</span>&quot;</span>; <span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">if</span> [ ! -e <span class="string">&quot;$dir<span class="variable">$d</span>&quot;</span> ]; <span class="keyword">then</span> mkdir <span class="string">&quot;$dir<span class="variable">$d</span>&quot;</span>; <span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> $*</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		mv <span class="variable">$i</span> <span class="string">&quot;$dir<span class="variable">$d</span>&quot;</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;Successfully deleted <span class="variable">$i</span>&quot;</span></span><br><span class="line">	<span class="keyword">done</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就人性化多了！</p>
+<p>试了一下，完美！</p>
+<figure>
+<img src="image-20220317095016988.png" alt="image-20220317095016988" />
+<figcaption aria-hidden="true">image-20220317095016988</figcaption>
+</figure>
+<p>甚至可以这样：</p>
+<figure>
+<img src="image-20220317095238520.png" alt="image-20220317095238520" />
+<figcaption aria-hidden="true">image-20220317095238520</figcaption>
+</figure>
+<p>缺点是，如果删除同名文件，会将垃圾箱里面原来的覆盖掉</p></li>
+</ul>
+<h1 id="指令忘了怎么办">指令忘了怎么办</h1>
+<ul>
+<li><p>--help</p>
+<p>我觉得这个挺好用的，会列出来这个指令的基本功能，以及各个选项的作用，简单清晰易懂，适合速查，<strong>强烈推荐</strong></p></li>
+<li><p>tldr</p>
+<p>'too long don't read'的缩写</p>
+<p>这更像一个教程，就是给你举一些常用的例子，告诉你怎么写</p>
+<p><del>还是彩色的，会让你的眼前一抹绿</del></p>
+<p>（要是有中文版就好了TAT</p></li>
+<li><p>man</p>
+<p><strong>狗都不看</strong></p></li>
+<li><p>上网查（误</p></li>
+<li><p>求助大佬（误</p></li>
+</ul>
+<hr />
+<p><strong>[后记]</strong></p>
+<p>bash这个玩意，指令真的记不住</p>
+<p><strong>只有熟能生巧</strong>，<del>但是windows这么好用，谁没事用Linux啊</del></p>
+<p>除去os课不讲，我觉得这玩意的最大优势在于<del>装逼</del>批处理</p>
+<p>大概是我现在还没有习惯于命令行并且不熟练才会觉得很难受吧</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>CNX
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://banana889.github.io/2022/03/16/%E5%B7%A5%E5%85%B7/2022-3-16-%E5%88%86%E4%BA%AB%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0bash%E6%97%B6%E7%9A%84%E7%AC%94%E8%AE%B0/" title="分享一些学习bash时的笔记">http://banana889.github.io/2022/03/16/工具/2022-3-16-分享一些学习bash时的笔记/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"># 工具</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/%E5%A4%87%E5%BF%98/" rel="tag"># 备忘</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/14/%E6%9C%AA%E5%88%86%E7%B1%BB/%E5%9F%BA%E7%89%A92/" rel="prev" title="2022春基物实验2">
+                  <i class="fa fa-chevron-left"></i> 2022春基物实验2
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/03/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-%E6%91%98%E8%A6%81/" rel="next" title="数学建模-摘要">
+                  数学建模-摘要 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC81NTQwNy8zMTg3NA=="></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CNX</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">108k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:17</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@8.13.8/dist/mermaid.min.js","integrity":"sha256-QmSAc2kIaUjleIJ46X7qPW2zrpCbXlMz3YIGgWpQ1Jo="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":false,"github_id":"Banana889","repo":"Banana889.github.io","client_id":"2dbd1c96b10b8c1f2ab1","client_secret":"78ff93ae010eeeed4d11ec2f1261838e7a2f3abe","admin_user":"Banana889","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"3be7aa98d992907175cbd79c194399f2"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="/js/third-party/comments/livere.js"></script>
+
+  
+</body>
+</html>

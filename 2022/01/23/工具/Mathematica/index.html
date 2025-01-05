@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#5e3906">
+<meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#5e3906">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=serif:300,300italic,400,400italic,700,700italic%7CZCOOL+KuaiLe:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"banana889.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null,"activeClass":"livere"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Mathematica的基本知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MMA---基础">
+<meta property="og:url" content="http://banana889.github.io/2022/01/23/%E5%B7%A5%E5%85%B7/Mathematica/index.html">
+<meta property="og:site_name" content="Banana的博客">
+<meta property="og:description" content="Mathematica的基本知识">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://banana889.github.io/2022/01/23/%E5%B7%A5%E5%85%B7/Mathematica/image-20220106165832007.png">
+<meta property="og:image" content="http://banana889.github.io/2022/01/23/%E5%B7%A5%E5%85%B7/Mathematica/image-20220127195324201-16432844064173.png">
+<meta property="og:image" content="http://banana889.github.io/2022/01/23/%E5%B7%A5%E5%85%B7/Mathematica/image-20220123101739177-16429042645821.png">
+<meta property="og:image" content="http://banana889.github.io/2022/01/23/%E5%B7%A5%E5%85%B7/Mathematica/李萨如图.gif">
+<meta property="og:image" content="http://banana889.github.io/2022/01/23/%E5%B7%A5%E5%85%B7/Mathematica/image-20220127183642812.png">
+<meta property="article:published_time" content="2022-01-23T02:39:00.000Z">
+<meta property="article:modified_time" content="2022-03-16T04:37:32.262Z">
+<meta property="article:author" content="CNX">
+<meta property="article:tag" content="MMA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://banana889.github.io/2022/01/23/%E5%B7%A5%E5%85%B7/Mathematica/image-20220106165832007.png">
+
+
+<link rel="canonical" href="http://banana889.github.io/2022/01/23/%E5%B7%A5%E5%85%B7/Mathematica/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://banana889.github.io/2022/01/23/%E5%B7%A5%E5%85%B7/Mathematica/","path":"2022/01/23/工具/Mathematica/","title":"MMA---基础"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MMA---基础 | Banana的博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="Banana的博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Banana的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">分享有趣的知识</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">21</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">9</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间轴<span class="badge">26</span></a></li>
+        <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
+        <li class="menu-item menu-item-github"><a href="https://github.com/Banana889" rel="noopener" target="_blank">GitHub</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8F%9C%E5%8D%95%E6%A0%8F%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">菜单栏设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E4%B8%8E%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">变量与函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">3.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text">函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-number">4.</span> <span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%88%97%E8%A1%A8"><span class="nav-number">4.1.</span> <span class="nav-text">创建列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%88%97%E8%A1%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%87%BD%E6%95%B0"><span class="nav-number">4.2.</span> <span class="nav-text">关于列表的一些函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E7%BB%86%E8%8A%82"><span class="nav-number">4.3.</span> <span class="nav-text">相关细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC"><span class="nav-number">4.4.</span> <span class="nav-text">表格</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">5.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0"><span class="nav-number">5.1.</span> <span class="nav-text">基本函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%98%E5%9B%BE"><span class="nav-number">6.</span> <span class="nav-text">绘图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">6.1.</span> <span class="nav-text">2D</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-1"><span class="nav-number">6.2.</span> <span class="nav-text">3D</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E7%8E%AF"><span class="nav-number">6.3.</span> <span class="nav-text">例子：莫比乌斯环</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%84%E5%88%99"><span class="nav-number">7.</span> <span class="nav-text">规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%E8%A7%84%E5%88%99"><span class="nav-number">7.1.</span> <span class="nav-text">创建和使用规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%A7%84%E5%88%99"><span class="nav-number">7.1.1.</span> <span class="nav-text">创建规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%A7%84%E5%88%99"><span class="nav-number">7.1.2.</span> <span class="nav-text">使用规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%AC%A1%E4%BD%BF%E7%94%A8"><span class="nav-number">7.1.3.</span> <span class="nav-text">多次使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%A4%E4%BA%92"><span class="nav-number">8.</span> <span class="nav-text">交互</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#io"><span class="nav-number">9.</span> <span class="nav-text">I&#x2F;O</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5"><span class="nav-number">9.1.</span> <span class="nav-text">导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%87%BA"><span class="nav-number">9.2.</span> <span class="nav-text">导出</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">10.</span> <span class="nav-text">表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B"><span class="nav-number">11.</span> <span class="nav-text">编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6"><span class="nav-number">11.1.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF"><span class="nav-number">11.2.</span> <span class="nav-text">循环</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97"><span class="nav-number">12.</span> <span class="nav-text">矩阵运算</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CNX"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">CNX</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:3131902990@qq.com" title="E-Mail → mailto:3131902990@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://banana889.github.io/2022/01/23/%E5%B7%A5%E5%85%B7/Mathematica/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="CNX">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Banana的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MMA---基础
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-23 10:39:00" itemprop="dateCreated datePublished" datetime="2022-01-23T10:39:00+08:00">2022-01-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-03-16 12:37:32" itemprop="dateModified" datetime="2022-03-16T12:37:32+08:00">2022-03-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">软件学习</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Mathematica的基本知识</p>
+<span id="more"></span>
+<h1 id="基本操作">基本操作</h1>
+<ul>
+<li><p>获取函数的帮助： ?函数名，支持通配符</p>
+<p>s输入函数名，ctrl shift K ： 快速获取函数参数信息</p></li>
+<li><p>结束进程：Alt + .</p></li>
+<li><p>运行当前行 <code>Shift + Enter</code></p></li>
+<li><p>加分号，作用是不让这个语句输出</p></li>
+</ul>
+<h1 id="菜单栏设置">菜单栏设置</h1>
+<ul>
+<li><p>格式</p>
+<ul>
+<li><p>样式表--样式表选择器</p>
+<p>给笔记本换颜色、格式等等，很酷炫</p></li>
+</ul></li>
+<li><p>单元</p>
+<ul>
+<li><p>转换成</p>
+<p>TratitionalForm : 传统形式，会把数学符号都显示出来，例如<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.691ex" xmlns="http://www.w3.org/2000/svg" width="6.087ex" height="2.514ex" role="img" focusable="false" viewBox="0 -805.5 2690.7 1111"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo" transform="translate(0 0.5)"><path data-c="222B" d="M113 -244Q113 -246 119 -251T139 -263T167 -269Q186 -269 199 -260Q220 -247 232 -218T251 -133T262 -15T276 155T297 367Q300 390 305 438T314 512T325 580T340 647T361 703T390 751T428 784T479 804Q481 804 488 804T501 805Q552 802 581 769T610 695Q610 669 594 657T561 645Q542 645 527 658T512 694Q512 705 516 714T526 729T538 737T548 742L552 743Q552 745 545 751T525 762T498 768Q475 768 460 756T434 716T418 652T407 559T398 444T387 300T369 133Q349 -38 337 -102T303 -207Q256 -306 169 -306Q119 -306 87 -272T55 -196Q55 -170 71 -158T104 -146Q123 -146 138 -159T153 -195Q153 -206 149 -215T139 -230T127 -238T117 -242L113 -244Z"></path></g><g data-mml-node="mi" transform="translate(776.7,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mtext" transform="translate(1348.7,0)"><path data-c="A0" d=""></path></g><g data-mml-node="mi" transform="translate(1598.7,0)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mi" transform="translate(2118.7,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g></g></g></svg></mjx-container></span></p>
+<p>StandardForm：标准形式，所见即输入</p></li>
+<li><p>笔记本历史</p>
+<p>这个功能有点意思，可以追踪笔记本的修改记录，看起来很nb</p></li>
+</ul></li>
+<li><p>图形</p>
+<ul>
+<li><p>新图形</p>
+<p>新建一个绘图区，可以用鼠标画图，看起来不太好用</p></li>
+</ul></li>
+</ul>
+<h1 id="变量与函数">变量与函数</h1>
+<h2 id="变量">变量</h2>
+<ol type="1">
+<li><p>“=” 与 “:=”的区别</p>
+<p>=表示计算出右边的结果后赋值</p>
+<p>:= 表示遇到左边这个形式的时候替换成右边的东西</p>
+<p>因此定义函数应该用 :=</p></li>
+<li><p><code>%</code>表示上一个输出，<code>%%</code>表示上上一个，以此类推</p>
+<p>或者用<code>%3</code>表示<code>Out[3]</code></p></li>
+<li><p>x=. 清除x的赋值</p></li>
+</ol>
+<h2 id="函数">函数</h2>
+<ol type="1">
+<li><p>定义函数</p>
+<p>f[x_] := x^2</p>
+<p>左边用x_，可能是为了将函数的定义与调用区分开</p>
+<p><strong>分段函数</strong> <code>/;</code>后跟条件，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f[x_] := x /; x&gt;0</span><br><span class="line">f[x_] := -x /; x&lt;=0</span><br></pre></td></tr></table></figure>
+<p><strong>过程函数</strong></p>
+<p>f[参数_] = 语句1;语句2;语句3...</p></li>
+<li><p>调用函数</p>
+<ul>
+<li>f[x]</li>
+<li>f @ x (前缀调用)</li>
+<li>x // f （后缀调用）</li>
+<li>a ~ f ~ b 中缀调用（对于含有两个参数的函数）</li>
+</ul></li>
+<li><p>Options[函数名]</p>
+<p>获取这个函数有哪些参数</p></li>
+<li><p>对列表整体使用某个函数</p>
+<p>函数有一个性质叫<code>Listable</code>
+表示该函数能不能对于一个列表整个操作（即f[{x1,x2,x3}] =
+{f[x1],f[x2],f[x3]} ]</p>
+<p>如果有这个性质，可以直接调用，如果没有，可以使用<code>Map</code>函数，将列表中的每个值映射到另一个列表：</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Map</span><span class="punctuation">[</span><span class="variable">f</span><span class="operator">,</span><span class="variable">mylist</span><span class="punctuation">]</span></span><br><span class="line">相当于</span><br><span class="line"><span class="variable">f</span> <span class="operator">/@</span> <span class="variable">mylist</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>我感觉有点像matlab里面的 .* 点号运算符</p>
+</blockquote>
+<p>Map可太强大了，甚至可以作用于表达式（比如 <code>Map[f,a+b] =
+f[a]+f[b]</code>)</p>
+<p><strong>Map第三个参数的含义：</strong></p>
+<p>如果输入的第二个参数是多重列表，第三个参数的含义是f作用的层次（最外层1，向里递增）</p>
+<p>第三个参数的格式为 n，{n}，{m,n}</p>
+<p><strong>n表示作用于1到n层</strong></p>
+<p><strong>{n}表示仅作用于第n层</strong></p>
+<p><strong>{m,n} 表示作用于m层到n层</strong></p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">//</span><span class="built_in">Map</span> <span class="variable">at</span> <span class="variable">level</span> <span class="number">1</span><span class="operator">:</span></span><br><span class="line"><span class="built_in">In</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span><span class="operator">:=</span> <span class="built_in">Map</span><span class="punctuation">[</span><span class="variable">f</span><span class="operator">,</span> <span class="punctuation">{</span><span class="punctuation">{</span><span class="variable">a</span><span class="operator">,</span> <span class="variable">b</span><span class="punctuation">}</span><span class="operator">,</span> <span class="punctuation">{</span><span class="variable">c</span><span class="operator">,</span> <span class="variable">d</span><span class="operator">,</span> <span class="variable">e</span><span class="punctuation">}</span><span class="punctuation">}</span><span class="punctuation">]</span></span><br><span class="line"><span class="built_in">Out</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span><span class="operator">=</span> <span class="punctuation">{</span><span class="variable">f</span><span class="punctuation">[</span><span class="punctuation">{</span><span class="variable">a</span><span class="operator">,</span> <span class="variable">b</span><span class="punctuation">}</span><span class="punctuation">]</span><span class="operator">,</span> <span class="variable">f</span><span class="punctuation">[</span><span class="punctuation">{</span><span class="variable">c</span><span class="operator">,</span> <span class="variable">d</span><span class="operator">,</span> <span class="variable">e</span><span class="punctuation">}</span><span class="punctuation">]</span><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line"><span class="operator">//</span><span class="built_in">Map</span> <span class="variable">at</span> <span class="variable">level</span> <span class="number">2</span><span class="operator">:</span></span><br><span class="line"><span class="built_in">In</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">]</span><span class="operator">:=</span> <span class="built_in">Map</span><span class="punctuation">[</span><span class="variable">f</span><span class="operator">,</span> <span class="punctuation">{</span><span class="punctuation">{</span><span class="variable">a</span><span class="operator">,</span> <span class="variable">b</span><span class="punctuation">}</span><span class="operator">,</span> <span class="punctuation">{</span><span class="variable">c</span><span class="operator">,</span> <span class="variable">d</span><span class="operator">,</span> <span class="variable">e</span><span class="punctuation">}</span><span class="punctuation">}</span><span class="operator">,</span> <span class="punctuation">{</span><span class="number">2</span><span class="punctuation">}</span><span class="punctuation">]</span></span><br><span class="line"><span class="built_in">Out</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">]</span><span class="operator">=</span> <span class="punctuation">{</span><span class="punctuation">{</span><span class="variable">f</span><span class="punctuation">[</span><span class="variable">a</span><span class="punctuation">]</span><span class="operator">,</span> <span class="variable">f</span><span class="punctuation">[</span><span class="variable">b</span><span class="punctuation">]</span><span class="punctuation">}</span><span class="operator">,</span> <span class="punctuation">{</span><span class="variable">f</span><span class="punctuation">[</span><span class="variable">c</span><span class="punctuation">]</span><span class="operator">,</span> <span class="variable">f</span><span class="punctuation">[</span><span class="variable">d</span><span class="punctuation">]</span><span class="operator">,</span> <span class="variable">f</span><span class="punctuation">[</span><span class="variable">e</span><span class="punctuation">]</span><span class="punctuation">}</span><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line"><span class="operator">//</span><span class="built_in">Map</span> <span class="variable">at</span> <span class="variable">levels</span> <span class="number">1</span> <span class="variable">and</span> <span class="number">2</span><span class="operator">:</span></span><br><span class="line"><span class="built_in">In</span><span class="punctuation">[</span><span class="number">3</span><span class="punctuation">]</span><span class="operator">:=</span> <span class="built_in">Map</span><span class="punctuation">[</span><span class="variable">f</span><span class="operator">,</span> <span class="punctuation">{</span><span class="punctuation">{</span><span class="variable">a</span><span class="operator">,</span> <span class="variable">b</span><span class="punctuation">}</span><span class="operator">,</span> <span class="punctuation">{</span><span class="variable">c</span><span class="operator">,</span> <span class="variable">d</span><span class="operator">,</span> <span class="variable">e</span><span class="punctuation">}</span><span class="punctuation">}</span><span class="operator">,</span> <span class="number">2</span><span class="punctuation">]</span></span><br><span class="line"><span class="built_in">Out</span><span class="punctuation">[</span><span class="number">3</span><span class="punctuation">]</span><span class="operator">=</span> <span class="punctuation">{</span><span class="variable">f</span><span class="punctuation">[</span><span class="punctuation">{</span><span class="variable">f</span><span class="punctuation">[</span><span class="variable">a</span><span class="punctuation">]</span><span class="operator">,</span> <span class="variable">f</span><span class="punctuation">[</span><span class="variable">b</span><span class="punctuation">]</span><span class="punctuation">}</span><span class="punctuation">]</span><span class="operator">,</span> <span class="variable">f</span><span class="punctuation">[</span><span class="punctuation">{</span><span class="variable">f</span><span class="punctuation">[</span><span class="variable">c</span><span class="punctuation">]</span><span class="operator">,</span> <span class="variable">f</span><span class="punctuation">[</span><span class="variable">d</span><span class="punctuation">]</span><span class="operator">,</span> <span class="variable">f</span><span class="punctuation">[</span><span class="variable">e</span><span class="punctuation">]</span><span class="punctuation">}</span><span class="punctuation">]</span><span class="punctuation">}</span></span><br></pre></td></tr></table></figure>
+<figure>
+<img src="image-20220106165832007.png" alt="image-20220106165832007">
+<figcaption aria-hidden="true">image-20220106165832007</figcaption>
+</figure>
+<p>Table 和 Map
+的区别如上，觉得Map更抽象，Table经常用于生成函数值列表</p>
+<p>Thread逐项作用</p></li>
+<li><p>纯函数（类似于Python里面的匿名函数）</p>
+<p>两种定义方法：</p>
+<ul>
+<li><p>Function[{参数列表}, 函数返回值]</p></li>
+<li><p>g = ( #1 + #2 )&amp;</p>
+<p>#加数字代表参数的占位符，&amp;表示这是一个纯函数</p></li>
+</ul>
+<p>纯函数可以配合着Map函数使用</p></li>
+<li><p>Apply 偷梁换柱</p>
+<p><code>Apply[f,g[x]] = f[x]</code></p>
+<p>简写 : <code>f @@ g[x]</code></p></li>
+<li><p>变量和函数的清除</p>
+<ul>
+<li><p>Clear[x]</p></li>
+<li><p>Remove[x]</p></li>
+<li><p>Clear 与 Remove的区别</p>
+<p>清除函数的时候，Clear只是清除了函数的具体定义，调用
+<code>?f</code>的时候还不会报错，并且这个函数的性质（例如Listable）也会保留</p>
+<p>Remove是彻底清除这个符号，再次调用<code>?f</code>的时候会说没有这个符号</p></li>
+<li><p>清除所有全局变量以及函数定义：</p>
+<p>Clear["Global`*"]</p></li>
+</ul></li>
+<li><p><strong>处理方程（组）</strong></p>
+<ul>
+<li><p>Solve 解方程</p></li>
+<li><p>NSolve 求数值解</p></li>
+<li><p>RSolve 解递推方程，例如</p>
+<p><code>RSolve[{p[n] == a*p[n - 1] + b ,p[1] == 1/(a + b)}, p[n],
+n]</code></p></li>
+<li><p>Eliminite 方程组消元</p></li>
+</ul></li>
+</ol>
+<h1 id="列表">列表</h1>
+<h2 id="创建列表">创建列表</h2>
+<ul>
+<li>{1,2,3}</li>
+<li><code>Range</code>函数</li>
+</ul>
+<h2 id="关于列表的一些函数">关于列表的一些函数</h2>
+<ul>
+<li><p>以矩阵形式输出矩阵：</p>
+<p>函数MatrixForm</p></li>
+<li><p>解除矩阵的嵌套:</p>
+<p>Flatten</p></li>
+<li><p>Join 合并列表</p>
+<p>矩阵纵向拼接：<code>Join[a,b]</code></p>
+<p>矩阵横向拼接：<code>Join[a,b,2]</code></p></li>
+<li><p>Union也是合并列表，合并后的列表没有重复元素</p></li>
+<li><p>Riffle，交错合并列表</p></li>
+<li><p>Drop 删除列表中的元素（不会改变列表，只会输出新的）</p></li>
+<li><figure>
+<img src="image-20220127195324201-16432844064173.png" alt="image-20220127195324201">
+<figcaption aria-hidden="true">image-20220127195324201</figcaption>
+</figure></li>
+<li><p>ReplacePart函数（不会改变列表，只会输出新的）</p></li>
+</ul>
+<h2 id="相关细节">相关细节</h2>
+<ul>
+<li><p>列表中元素的编号从1开始，和MATLAB一样</p></li>
+<li><p>要索引列表a中的元素应该用
+a[[1]]（如果是矩阵用a[[1]][[1]]，或者可以 a[[1,1]]）</p>
+<p>获取矩阵某一行：a[[i]]</p>
+<p>获取矩阵某一列：a[[All,i]]</p>
+<p>获取i到j个元素：a[[i;;j]]</p></li>
+</ul>
+<h2 id="表格">表格</h2>
+<ul>
+<li><p>Table函数</p>
+<p><code>Table[expr,spec1,spec2,...]</code></p>
+<p><code>Table[Table[expr,spec2],spec1]</code></p>
+<blockquote>
+<p>expr 是函数表达式</p>
+<p>spec是表示变量取值范围以及步长的列表，例如{x,0,10,1}</p>
+</blockquote>
+<p>Table 函数用于生成列表或者矩阵</p></li>
+<li><p>Grid函数</p>
+<p>大概用法是输入一个矩阵，返回一个表格</p>
+<p>Frame参数可以设置框线，还有别的参数可以设置颜色</p></li>
+</ul>
+<h1 id="字符串">字符串</h1>
+<h2 id="基本函数">基本函数</h2>
+<p>帮助文档的String&amp;Text里面有，暂时觉得没什么用</p>
+<p><code>&lt;&gt;</code> 连接字符串</p>
+<hr>
+<h1 id="绘图">绘图</h1>
+<h2 id="d">2D</h2>
+<p><strong>用于绘图的函数</strong></p>
+<ul>
+<li>Plot</li>
+<li>ListLinePlot</li>
+</ul>
+<p>​ 绘制点集的线条</p>
+<ul>
+<li><p>ParametricPlot</p>
+<p>绘制参数函数的图像</p></li>
+<li><p>PolerPlot 极坐标绘图</p></li>
+<li><p>VectorPlot 绘制向量图</p></li>
+</ul>
+<p><strong>常用参数</strong></p>
+<ul>
+<li>PlotRange 绘图范围</li>
+<li>AspectRatio 宽高比</li>
+<li>Axes 是否显示坐标轴</li>
+<li>AxesLabel 坐标轴标签</li>
+<li>Tick 坐标轴刻度</li>
+<li>PlotPoint 确定作图时每个单位长度取多少点，调整作图的精细程度</li>
+<li>PlotLabel 给图形增加大标题</li>
+<li>PlotStyle
+<ul>
+<li>ThickNess 线宽</li>
+<li>Graylevel 灰度</li>
+<li>RGBColor 颜色</li>
+<li>Dashing 线的形状</li>
+<li>Opacity 透明度</li>
+</ul></li>
+</ul>
+<h2 id="d-1">3D</h2>
+<ul>
+<li>PLot3D</li>
+<li>2D绘图函数大都有其相应的3d绘图函数</li>
+</ul>
+<hr>
+<p><strong>同时在一个图中显示两个图像</strong></p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">p1</span> <span class="operator">=</span> <span class="built_in">Plot</span><span class="punctuation">[</span><span class="built_in">Sin</span><span class="punctuation">[</span><span class="variable">x</span><span class="punctuation">]</span><span class="operator">,</span> <span class="punctuation">{</span><span class="variable">x</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span><span class="operator">,</span> <span class="number">1</span><span class="punctuation">}</span><span class="punctuation">]</span><span class="operator">;</span></span><br><span class="line"><span class="variable">p2</span> <span class="operator">=</span> <span class="built_in">Plot</span><span class="punctuation">[</span><span class="built_in">Cos</span><span class="punctuation">[</span><span class="variable">x</span><span class="punctuation">]</span><span class="operator">,</span> <span class="punctuation">{</span><span class="variable">x</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span><span class="operator">,</span> <span class="number">1</span><span class="punctuation">}</span><span class="punctuation">]</span><span class="operator">;</span></span><br><span class="line"><span class="built_in">Show</span><span class="punctuation">[</span><span class="variable">p1</span><span class="operator">,</span> <span class="variable">p2</span><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+<p><strong>常用参数</strong></p>
+<ul>
+<li>Boxed 是否给图形加一个框</li>
+<li>BoxRatios 图形立体框在三个方向的 长度比</li>
+<li>ViewPoint 观察点</li>
+<li>Mesh 网格</li>
+</ul>
+<h2 id="例子莫比乌斯环">例子：莫比乌斯环</h2>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Clear</span><span class="punctuation">[</span><span class="variable">r</span><span class="operator">,</span> <span class="variable">x</span><span class="operator">,</span> <span class="variable">y</span><span class="operator">,</span> <span class="variable">z</span><span class="punctuation">]</span><span class="operator">;</span></span><br><span class="line"><span class="variable">r</span> <span class="operator">=</span> <span class="number">1</span> <span class="operator">+</span> <span class="number">0.5</span> <span class="variable">v</span> <span class="built_in">Cos</span><span class="punctuation">[</span><span class="variable">t</span><span class="operator">/</span><span class="number">2</span><span class="punctuation">]</span><span class="operator">;</span></span><br><span class="line"><span class="variable">x</span> <span class="operator">=</span> <span class="variable">r</span> <span class="built_in">Cos</span><span class="punctuation">[</span><span class="variable">t</span><span class="punctuation">]</span><span class="operator">;</span></span><br><span class="line"><span class="variable">y</span> <span class="operator">=</span> <span class="variable">r</span> <span class="built_in">Sin</span><span class="punctuation">[</span><span class="variable">t</span><span class="punctuation">]</span><span class="operator">;</span></span><br><span class="line"><span class="variable">z</span> <span class="operator">=</span> <span class="number">0.5</span> <span class="variable">v</span> <span class="built_in">Sin</span><span class="punctuation">[</span><span class="variable">t</span><span class="operator">/</span><span class="number">2</span><span class="punctuation">]</span><span class="operator">;</span></span><br><span class="line"><span class="built_in">ParametricPlot3D</span><span class="punctuation">[</span><span class="punctuation">{</span><span class="variable">x</span><span class="operator">,</span> <span class="variable">y</span><span class="operator">,</span> <span class="variable">z</span><span class="punctuation">}</span><span class="operator">,</span> <span class="punctuation">{</span><span class="variable">t</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">2</span> <span class="built_in">Pi</span><span class="punctuation">}</span><span class="operator">,</span> <span class="punctuation">{</span><span class="variable">v</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span><span class="operator">,</span> <span class="number">1</span><span class="punctuation">}</span><span class="operator">,</span><span class="built_in">PlotStyle</span> <span class="operator">-&gt;</span> <span class="built_in">Opacity</span><span class="punctuation">[</span><span class="number">0.3</span><span class="punctuation">]</span><span class="operator">,</span> <span class="built_in">Mesh</span> <span class="operator">-&gt;</span> <span class="built_in">None</span><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+<h1 id="规则">规则</h1>
+<h2 id="创建和使用规则">创建和使用规则</h2>
+<h3 id="创建规则">创建规则</h3>
+<p><code>x-&gt;
+a</code>就是一条规则，含义是x取a，他可以放在一个表达式后面，作用是把表达式中的x替换为a:
+<span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="15.387ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 6801.2 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">表</text></g><g data-mml-node="mi" transform="translate(900,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">达</text></g><g data-mml-node="mi" transform="translate(1800,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">式</text></g><g data-mml-node="mtext" transform="translate(2700,0)"><path data-c="A0" d=""></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(2950,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path></g></g><g data-mml-node="mo" transform="translate(3450,0)"><path data-c="2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path></g><g data-mml-node="mtext" transform="translate(3894.7,0)"><path data-c="A0" d=""></path></g><g data-mml-node="mi" transform="translate(4144.7,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(4994.4,0)"><path data-c="2192" d="M56 237T56 250T70 270H835Q719 357 692 493Q692 494 692 496T691 499Q691 511 708 511H711Q720 511 723 510T729 506T732 497T735 481T743 456Q765 389 816 336T935 261Q944 258 944 250Q944 244 939 241T915 231T877 212Q836 186 806 152T761 85T740 35T732 4Q730 -6 727 -8T711 -11Q691 -11 691 0Q691 7 696 25Q728 151 835 230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(6272.2,0)"><path data-c="1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path></g></g></g></svg></mjx-container></span> <code>/.</code>是<code>ReplaceAll</code>的缩写</p>
+<p>x可以是任何符号、表达式、甚至是函数，例如： <span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="28.067ex" height="2.565ex" role="img" focusable="false" viewBox="0 -883.9 12405.7 1133.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mo" transform="translate(550,0)"><path data-c="5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"></path></g><g data-mml-node="mi" transform="translate(828,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(1400,0)"><path data-c="5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"></path></g><g data-mml-node="mo" transform="translate(1900.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(2900.4,0)"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mo" transform="translate(3450.4,0)"><path data-c="5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"></path></g><g data-mml-node="mi" transform="translate(3728.4,0)"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(4218.4,0)"><path data-c="5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"></path></g><g data-mml-node="mo" transform="translate(4718.7,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(5718.9,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mtext" transform="translate(6218.9,0)"><path data-c="A0" d=""></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(6468.9,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path></g></g><g data-mml-node="mo" transform="translate(6968.9,0)"><path data-c="2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path></g><g data-mml-node="mtext" transform="translate(7413.6,0)"><path data-c="A0" d=""></path></g><g data-mml-node="mi" transform="translate(7663.6,0)"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mo" transform="translate(8213.6,0)"><path data-c="5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"></path></g><g data-mml-node="mi" transform="translate(8491.6,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mi" transform="translate(9063.6,0)"><path data-c="5F" d="M0 -62V-25H499V-62H0Z"></path></g><g data-mml-node="mo" transform="translate(9563.6,0)"><path data-c="5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"></path></g><g data-mml-node="mo" transform="translate(10119.3,0)"><path data-c="2192" d="M56 237T56 250T70 270H835Q719 357 692 493Q692 494 692 496T691 499Q691 511 708 511H711Q720 511 723 510T729 506T732 497T735 481T743 456Q765 389 816 336T935 261Q944 258 944 250Q944 244 939 241T915 231T877 212Q836 186 806 152T761 85T740 35T732 4Q730 -6 727 -8T711 -11Q691 -11 691 0Q691 7 696 25Q728 151 835 230H70Q56 237 56 250Z"></path></g><g data-mml-node="msup" transform="translate(11397.1,0)"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mn" transform="translate(605,413) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g></g></svg></mjx-container></span> 把f[x] , f[y] 替换为 x^2, y^2</p>
+<p>当然，<code>/.</code>
+后面也可以是规则的集合（<code>/.</code>ReplaceAll）</p>
+<p><strong><code>:&gt;</code></strong> 这个符号与
+<code>-&gt;</code>的区别类似于 <code>=</code> 和
+<code>:=</code>的区别</p>
+<p>书上举了一个RandomReal的例子</p>
+<ul>
+<li>也可以把规则赋值给一个符号</li>
+</ul>
+<h3 id="使用规则">使用规则</h3>
+<p><code>Slove</code>函数得到的结果是<strong>一个嵌套列表中的规则</strong>，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{{x -&gt; -1}, {x -&gt; 1}}</span><br></pre></td></tr></table></figure>
+<p>如果是多元，多个解的方程，solve的结果还是二层的嵌套列表，每个子列表中是一个解</p>
+<p>利用这个可以画出方程解关于参数的图像</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sol = Solve[x+1==a,x]</span><br><span class="line">Plot[x /. sol ,{a,-2,2}]</span><br></pre></td></tr></table></figure>
+<h3 id="多次使用">多次使用</h3>
+<p><code>/.</code> 使用一次 ReplaceAll</p>
+<p><code>//.</code> 使用多次直到表达式不发生改变 ReplaceRepeated</p>
+<p>ReplaceReaped还可以设置最大使用次数，第三个参数MaxIterations</p>
+<p><strong>ReplaceList</strong> 输出多种可能的替换</p>
+<p>​ <code>ReplaceList[...] //Column</code></p>
+<p>​
+(//是函数的后缀使用形式，相当于<code>Column[ReplaceList[...]]</code>)</p>
+<p>​ 能让信息以列（本来是列表）的形式输出出来</p>
+<p>​ 例子:</p>
+<figure>
+<img src="image-20220123101739177-16429042645821.png" alt="image-20220123101739177">
+<figcaption aria-hidden="true">image-20220123101739177</figcaption>
+</figure>
+<h1 id="交互">交互</h1>
+<p><strong>Manipulate</strong> 交互</p>
+<p>第一个参数是要输出的东西（含参数），后面的参数形式为<code>{a,0,10}</code>表示参数名称以及取值范围</p>
+<p><strong>Animate</strong> 动画</p>
+<p>输入和Manipulate差不多，输出时参数随时间变化的动画，可导出为gif</p>
+<p>例如：</p>
+<p><img src="李萨如图.gif" alt="李萨如图" style="zoom:67%;"></p>
+<h1 id="io">I/O</h1>
+<p>MMA可以很方便的导入和导出文件、图片、表格等等</p>
+<h2 id="导入">导入</h2>
+<p><strong>从本地导入</strong>：</p>
+<p>Import["地址/文件名"]</p>
+<p><strong>从网站导入</strong>：</p>
+<p>Import["网址","选项"]</p>
+<h2 id="导出">导出</h2>
+<p>Export[]</p>
+<h1 id="表达式">表达式</h1>
+<p>为什么要在这里专门讲一下表达式？不仅因为表达式MMA语法中的重要定义，还因为这里的表达式不像我们平常理解的那样，还有别的含义</p>
+<p><strong>列表、数学公式、图形等，在MMA中都可以看做是表达式</strong></p>
+<p>FullForm函数用于获取表达式的标准形式，例如</p>
+<table>
+<thead>
+<tr class="header">
+<th>常用形式</th>
+<th>FullForm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>a+b+c</td>
+<td>Add[a,b,c]</td>
+</tr>
+<tr class="even">
+<td>{a,b,c}</td>
+<td>List[a,b,c]</td>
+</tr>
+</tbody>
+</table>
+<p>所以一个表达式可以看做是由一个Head和后面的元素组成的</p>
+<p><code>Head</code>函数可以用于获取表达式头部，例如
+<code>Head[{a,b,c}]</code>的输出是<code>List</code>，用下标0索引也可以得到Head</p>
+<p>当然，也可以自己随便定义Head，例如myhead[1,2,3],这个表达式的Head就是<code>myhead</code></p>
+<p>既然列表是特殊的表达式，关于列表的一些函数（例如Append,Join,Sort,Reverse,Take,Length...）都可以用于普通的表达式</p>
+<p><strong>表达式层层嵌套可以形成树</strong></p>
+<p>函数<code>TreeForm</code>可以输出表达式的树形式</p>
+<p>例如</p>
+<p><img src="image-20220127183642812.png" alt="image-20220127183642812" style="zoom: 50%;"></p>
+<p>可以说是很炫酷又没卵用了））</p>
+<p>Position搜寻某个元素在表达式中的位置，可以指定搜索的层数</p>
+<p>Level获取表达式某一层的元素（从上到下层数变大）</p>
+<p>Depth获取表达式的最大层数，也就是高度</p>
+<h1 id="编程">编程</h1>
+<h2 id="条件">条件</h2>
+<ul>
+<li><p><code>If[test,body1,body2,body3]</code></p>
+<p>test为真，执行body1；test为假，执行body2；test无法判断真假，执行body3</p></li>
+<li><p><code>Which[条件1,表达式1,条件2,表达式2...]</code></p>
+<p>依次检查条件，整个表达式取第一个条件为真对应的表达式值，否则表达式取值为Null</p></li>
+<li></li>
+</ul>
+<h2 id="循环">循环</h2>
+<ul>
+<li><p><code>Do[Expr,{imin,imax,step}]</code></p>
+<p>从imin到imax执行语句Expr</p></li>
+<li><p><code>While[Test,Body]</code></p></li>
+<li><p><code>For[start,test,incrace,body]</code>和C语言的For循环语法差不多</p></li>
+</ul>
+<h1 id="矩阵运算">矩阵运算</h1>
+<p>我觉得这个软件矩阵运算没有MATLAB方便，没有左除右除那些运算，下面是一些常用函数</p>
+<ul>
+<li><code>.</code>点号表示矩阵乘法</li>
+<li>Inverse 求逆</li>
+<li>MatrixPower 求幂</li>
+<li>Transpose 转置</li>
+<li>MatrixRank</li>
+<li>RowReduce 化为行最简形</li>
+<li>NullSpace 求基础解系</li>
+<li>Orthogonalize 矩阵正交单位化</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>CNX
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://banana889.github.io/2022/01/23/%E5%B7%A5%E5%85%B7/Mathematica/" title="MMA---基础">http://banana889.github.io/2022/01/23/工具/Mathematica/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/MMA/" rel="tag"># MMA</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/21/%E4%BB%A3%E6%95%B0/2022-1-21-%E4%BB%A3%E6%95%B0%E7%AC%AC4%E7%AB%A0---%E5%9F%9F/" rel="prev" title="代数第4章---域">
+                  <i class="fa fa-chevron-left"></i> 代数第4章---域
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/24/%E6%95%B0%E5%AD%A6/2022-1-24-%E8%BF%90%E7%AD%B9%E5%AD%A6---%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98/" rel="next" title="运筹学---最大流问题">
+                  运筹学---最大流问题 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC81NTQwNy8zMTg3NA=="></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CNX</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">108k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:17</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@8.13.8/dist/mermaid.min.js","integrity":"sha256-QmSAc2kIaUjleIJ46X7qPW2zrpCbXlMz3YIGgWpQ1Jo="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":false,"github_id":"Banana889","repo":"Banana889.github.io","client_id":"2dbd1c96b10b8c1f2ab1","client_secret":"78ff93ae010eeeed4d11ec2f1261838e7a2f3abe","admin_user":"Banana889","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"3be7aa98d992907175cbd79c194399f2"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="/js/third-party/comments/livere.js"></script>
+
+  
+</body>
+</html>
