@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://banana889.github.io/links/index.html</loc>
+    
+    <lastmod>2025-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://banana889.github.io/2025/01/05/Banana8892024/</loc>
     
     <lastmod>2025-01-05</lastmod>
@@ -41,15 +50,6 @@
     <loc>http://banana889.github.io/music/index.html</loc>
     
     <lastmod>2023-12-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://banana889.github.io/links/index.html</loc>
-    
-    <lastmod>2023-10-02</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
